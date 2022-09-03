@@ -60,9 +60,6 @@ shape = SubResource( 3 )
 [node name="BackGround" type="StaticBody2D" parent="."]
 show_behind_parent = true
 position = Vector2( 191, 189 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="BackGround"]
 show_behind_parent = true
