@@ -4,13 +4,18 @@ var velocity = Vector2()
 
 var ACCELERATION = 1000
 var SPEED = 200
-var JUMP_SPEED = 200
+var JUMP_SPEED = 250
 var GRAVITY = 10
 
+onready var sprite = $Pivot/Sprite
+onready var anim_player = $AnimationPlayer
+onready var anim_tree = $AnimationTree
+onready var playback = anim_tree.get("parameters/playback")
+onready var pivot = $Pivot
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	anim_tree.active = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -28,4 +33,20 @@ func _physics_process(delta):
 	if is_on_floor() and  Input.is_action_just_pressed("move_player_up"):
 		velocity.y = -JUMP_SPEED
 	
+	# Animations
 	
+	if Input.is_action_pressed("move_player_left") and not Input.is_action_pressed("move_player_right"):
+		pivot.scale.x = 1
+	if Input.is_action_pressed("move_player_right") and not Input.is_action_pressed("move_player_left"):
+		pivot.scale.x = -1
+	
+	if is_on_floor():
+		if abs(velocity.x) > 20:
+			playback.travel("run")
+		else:
+			playback.travel("idle")
+	else:	#TODO fix landing visual bug
+		if velocity.y < 0:
+			playback.travel("jump")
+		else:
+			playback.travel("fall")
