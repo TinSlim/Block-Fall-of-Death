@@ -10,7 +10,6 @@
 height = 8.0
 
 [sub_resource type="StreamTexture" id=12]
-load_path = "res://.import/Idle (34x44).png-afea4e60ef64c550c58b9b9982d0f922.stex"
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -106,7 +105,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+"values": [ 0, 0, 1, 2, 3, 5, 6, 7 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Pivot/Sprite:hframes")
@@ -130,7 +129,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ SubResource( 12 ) ]
+"values": [ ExtResource( 2 ) ]
 }
 
 [sub_resource type="Animation" id=19]
