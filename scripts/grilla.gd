@@ -6,9 +6,9 @@ var grid = []
 var playing = false
 var actual_object = null
 var movement_counter = 0
-var movement_dif = 10
+var movement_dif = 30
 var init_pos = Vector2(8,0)
-var BLOCK_SIZE = 32
+var BLOCK_SIZE = 64
 
 var Bloque = preload("res://scenes/figura.tscn")
 #export(PacketScene) var Bloque
@@ -20,9 +20,6 @@ func _ready():
 		grid.append([])
 		for y in range(grid_size.y):
 			grid[x].append(0)
-	pass # Replace with function body.
-	print(grid)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -32,6 +29,9 @@ func _physics_process(delta):
 		if (true):
 			pass
 		pass
+	
+	if playing and actual_object.colission:
+		playing = false	
 	
 	# Si no juega crea un bloque
 	if !playing:

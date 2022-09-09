@@ -1,15 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/grilla.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://scripts/suelo.gd" type="Script" id=3]
-[ext_resource path="res://sprites/evening fence.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 30.7, 36.6111 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 300.25, 9.25 )
+extents = Vector2( 30.7, 30.8889 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -25,24 +21,10 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Suelo"]
-position = Vector2( 0.6, -6.83334 )
+position = Vector2( 0.6, -1.11112 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Node2D/Suelo"]
 texture = ExtResource( 2 )
 
 [node name="Node2D" type="Node2D" parent="Node2D"]
-
-[node name="Floor" type="StaticBody2D" parent="Node2D"]
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Floor"]
-position = Vector2( 300.25, 290 )
-shape = SubResource( 2 )
-
-[node name="Sprite" type="Sprite" parent="Node2D/Floor"]
-position = Vector2( 457.5, 284.304 )
-scale = Vector2( 0.789792, 0.479529 )
-texture = ExtResource( 4 )
