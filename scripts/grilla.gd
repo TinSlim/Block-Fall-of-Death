@@ -8,7 +8,7 @@ var actual_object = null
 var movement_counter = 0
 var movement_dif = 30
 var init_pos = Vector2(8,0)
-var BLOCK_SIZE = 64
+var BLOCK_SIZE = 32
 
 var Bloque = preload("res://scenes/figura.tscn")
 #export(PacketScene) var Bloque
