@@ -97,31 +97,31 @@ margin_right = 566.0
 margin_bottom = 272.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_right = 214.0
+margin_right = 275.0
 margin_bottom = 212.0
 
 [node name="Play" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_right = 214.0
+margin_right = 275.0
 margin_bottom = 50.0
 text = "Play"
 
 [node name="Credits" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 margin_top = 54.0
-margin_right = 214.0
+margin_right = 275.0
 margin_bottom = 104.0
 text = "Credits"
 
 [node name="Exit" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 margin_top = 108.0
-margin_right = 214.0
+margin_right = 275.0
 margin_bottom = 158.0
 text = "Exit"
 
 [node name="Play2" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 margin_top = 162.0
-margin_right = 214.0
+margin_right = 275.0
 margin_bottom = 212.0
-text = "BoxTest"
+text = "Playground"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="VBoxContainer/HBoxContainer"]
 position = Vector2( 419, 77 )
