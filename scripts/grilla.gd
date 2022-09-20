@@ -11,6 +11,7 @@ var init_pos = Vector2(8,0)
 var BLOCK_SIZE = 32
 
 var Bloque = preload("res://scenes/figura.tscn")
+var BloqueEstatico = preload("res://scenes/figuraStatic.tscn")
 #export(PacketScene) var Bloque
 
 # grid [arriba parte-fila] [izquierda parte-columna]
@@ -32,6 +33,11 @@ func _physics_process(delta):
 	
 	if playing and actual_object.colission:
 		playing = false	
+		var new_object = BloqueEstatico.instance()
+		$Node2D.add_child(new_object)
+		print("llegue aca")
+		new_object.position = actual_object.position
+		actual_object.queue_free()
 	
 	# Si no juega crea un bloque
 	if !playing:

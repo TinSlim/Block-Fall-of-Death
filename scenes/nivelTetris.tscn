@@ -1,13 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/grilla.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://scripts/suelo.gd" type="Script" id=3]
 [ext_resource path="res://sprites/evening buildings front.png" type="Texture" id=4]
 [ext_resource path="res://sprites/evening sky.png" type="Texture" id=5]
+[ext_resource path="res://sprites/evening fence.png" type="Texture" id=6]
+[ext_resource path="res://scenes/bunny.tscn" type="PackedScene" id=7]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 30.7, 30.8889 )
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 300.25, 9.25 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10, 128 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 10, 149 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -29,19 +35,41 @@ position = Vector2( 107.5, -47.375 )
 scale = Vector2( 1.57632, 1.89966 )
 texture = ExtResource( 4 )
 
-[node name="Suelo" type="StaticBody2D" parent="Node2D"]
-position = Vector2( 308, 528 )
-scale = Vector2( 10, 9 )
-script = ExtResource( 3 )
+[node name="Node2D" type="Node2D" parent="Node2D"]
+
+[node name="Dunny" parent="Node2D" instance=ExtResource( 7 )]
+position = Vector2( 577, 264 )
+
+[node name="Floor" type="StaticBody2D" parent="Node2D"]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Suelo"]
-position = Vector2( 0.6, -1.11112 )
-shape = SubResource( 1 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Floor"]
+position = Vector2( 300.25, 290 )
+shape = SubResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="Node2D/Suelo"]
-texture = ExtResource( 2 )
+[node name="Sprite" type="Sprite" parent="Node2D/Floor"]
+position = Vector2( 457.5, 284.304 )
+scale = Vector2( 0.789792, 0.479529 )
+texture = ExtResource( 6 )
 
-[node name="Node2D" type="Node2D" parent="Node2D"]
+[node name="Left_Wall" type="StaticBody2D" parent="Node2D"]
+position = Vector2( -10, 289 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Left_Wall"]
+position = Vector2( 0, -118 )
+shape = SubResource( 3 )
+
+[node name="Right_Wall" type="StaticBody2D" parent="Node2D"]
+position = Vector2( 611, 289 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Right_Wall"]
+position = Vector2( 0, -139 )
+shape = SubResource( 4 )

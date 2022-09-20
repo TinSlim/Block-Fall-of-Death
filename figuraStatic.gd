@@ -1,5 +1,4 @@
-extends Area2D
-
+extends StaticBody2D
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -23,6 +22,7 @@ func _on_body_entered(body: Node):
 	colission = true
 	if body.has_method("check_line"):
 		body.check_line()
+	print(body)
 	pass
 	#if body.has_method("check_line"):
 	#	body.check_line()
