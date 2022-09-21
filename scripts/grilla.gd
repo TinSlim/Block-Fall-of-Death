@@ -35,7 +35,6 @@ func _physics_process(delta):
 		playing = false	
 		var new_object = BloqueEstatico.instance()
 		$Node2D.add_child(new_object)
-		print("llegue aca")
 		new_object.position = actual_object.position
 		actual_object.queue_free()
 	
@@ -43,7 +42,7 @@ func _physics_process(delta):
 	if !playing:
 		actual_object = Bloque.instance()
 		$Node2D.add_child(actual_object)
-		actual_object.position = init_pos * BLOCK_SIZE
+		actual_object.position = Vector2(init_pos.x * BLOCK_SIZE,8)
 		playing = true
 		pass
 	
