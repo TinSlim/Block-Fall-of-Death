@@ -30,3 +30,7 @@ func _on_body_entered(body: Node):
 func _on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int):
 	colission = true
 	print(area)
+
+func change_color(color):
+	var SPRITE = self.find_node("Sprite")
+	SPRITE.modulate = color

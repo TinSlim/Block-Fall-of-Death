@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/pieces/piece.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/rhode_island_z.gd" type="Script" id=2]
+
+[node name="RhodeIslandZ" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="cube1" parent="Pivot" index="0"]
+position = Vector2( 0, -32 )
+
+[node name="cube3" parent="Pivot" index="2"]
+position = Vector2( -32, 0 )
+
+[node name="cube4" parent="Pivot" index="3"]
+position = Vector2( -32, 32 )
