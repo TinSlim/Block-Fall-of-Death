@@ -123,10 +123,20 @@ margin_right = 214.0
 margin_bottom = 212.0
 text = "BoxTest"
 
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 218.0
+margin_right = 432.0
+margin_bottom = 212.0
+
+[node name="Play3" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+margin_right = 214.0
+margin_bottom = 50.0
+text = "BoxTest"
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="VBoxContainer/HBoxContainer"]
-position = Vector2( 419, 77 )
+position = Vector2( 512, 92 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 14 )
-frame = 1
+frame = 4
 speed_scale = 4.0
 playing = true

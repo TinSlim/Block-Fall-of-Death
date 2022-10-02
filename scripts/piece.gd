@@ -11,6 +11,8 @@ onready var CUBES = PIVOT.get_children()
 
 func rotate_piece():
 	PIVOT.rotation_degrees = PIVOT.rotation_degrees + 90
+	for cube in CUBES:
+		cube.rotation_degrees = cube.rotation_degrees - 90
 
 
 # Called when the node enters the scene tree for the first time.

@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/pieces/blue_ricky.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/pieces/orange_ricky.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/pieces/rhode_island_z.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/pieces/smashboy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/pieces/cleveland_z.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/pieces/hero.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/pieces/teewee.tscn" type="PackedScene" id=7]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BlueRicky" parent="." instance=ExtResource( 1 )]
+position = Vector2( 497, 209 )
+
+[node name="ClevelandZ" parent="." instance=ExtResource( 5 )]
+position = Vector2( 453, 66 )
+
+[node name="Hero" parent="." instance=ExtResource( 6 )]
+position = Vector2( 207, 198 )
+
+[node name="OrangeRicky" parent="." instance=ExtResource( 2 )]
+position = Vector2( 253, 87 )
+
+[node name="RhodeIslandZ" parent="." instance=ExtResource( 3 )]
+position = Vector2( 380, 217 )
+
+[node name="Smashboy" parent="." instance=ExtResource( 4 )]
+position = Vector2( 66, 47 )
+
+[node name="Teewee" parent="." instance=ExtResource( 7 )]
+position = Vector2( 72, 154 )

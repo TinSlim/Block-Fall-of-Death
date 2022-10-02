@@ -7,10 +7,13 @@
 script = ExtResource( 2 )
 
 [node name="cube1" parent="Pivot" index="0"]
-position = Vector2( -32, 0 )
+position = Vector2( -16, -16 )
+
+[node name="cube2" parent="Pivot" index="1"]
+position = Vector2( 16, -16 )
 
 [node name="cube3" parent="Pivot" index="2"]
-position = Vector2( 0, 32 )
+position = Vector2( 16, 16 )
 
 [node name="cube4" parent="Pivot" index="3"]
-position = Vector2( -32, 32 )
+position = Vector2( -16, 16 )
