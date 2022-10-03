@@ -17,7 +17,7 @@ extents = Vector2( 10, 149 )
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Node2D" parent="." instance=ExtResource( 1 )]
+[node name="Claw" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 27 )
 
 [node name="Dunny" parent="." instance=ExtResource( 2 )]
