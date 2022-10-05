@@ -8,10 +8,14 @@ script = ExtResource( 2 )
 
 [node name="Pivot" type="Node2D" parent="."]
 
-[node name="cube1" parent="Pivot" instance=ExtResource( 1 )]
+[node name="Cubes" type="Node2D" parent="Pivot"]
 
-[node name="cube2" parent="Pivot" instance=ExtResource( 1 )]
+[node name="cube1" parent="Pivot/Cubes" instance=ExtResource( 1 )]
 
-[node name="cube3" parent="Pivot" instance=ExtResource( 1 )]
+[node name="cube2" parent="Pivot/Cubes" instance=ExtResource( 1 )]
 
-[node name="cube4" parent="Pivot" instance=ExtResource( 1 )]
+[node name="cube3" parent="Pivot/Cubes" instance=ExtResource( 1 )]
+
+[node name="cube4" parent="Pivot/Cubes" instance=ExtResource( 1 )]
+
+[node name="Sombra" type="Node2D" parent="Pivot"]
