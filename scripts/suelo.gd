@@ -1,22 +1,17 @@
-extends StaticBody2D
+extends Node2D
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
+var BloqueEstatico = preload("res://scenes/figuraStatic.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	for x in range(18):
+		var actual_object = BloqueEstatico.instance()
+		actual_object.position = Vector2(x * 32 + 32, 10)
+		self.add_child(actual_object)
+		
 	pass # Replace with function body.
-
-
-func _on_body_entered(body: Node):
-	print("parentx")
-	pass
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-func check_line():
-	print("parentx")
-	pass

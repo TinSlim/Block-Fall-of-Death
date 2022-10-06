@@ -15,10 +15,7 @@ func _ready():
 	connect("area_shape_entered",self,"_on_area_shape_entered")
 
 func _on_body_entered(body: Node):
-	colission = true
-	if body.has_method("check_line"):
-		body.check_line()
-	pass
+	if (body.name != "BloqueEstatico"):
+		colission = true
+	pass # Replace with function body.
 
-func _on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int):
-	colission = true
