@@ -6,6 +6,7 @@ var ACCELERATION = 1000
 var SPEED = 200
 var JUMP_SPEED = 250
 var GRAVITY = 10
+var jump_counter = 1
 
 onready var sprite = $Pivot/Sprite
 onready var anim_player = $AnimationPlayer
@@ -30,8 +31,12 @@ func _physics_process(delta):
 	velocity.x = move_toward(velocity.x, move_input * SPEED, ACCELERATION * delta)
 	velocity.y += GRAVITY
 	
-	if is_on_floor() and  Input.is_action_just_pressed("move_player_up"):
+	if (is_on_floor() or jump_counter > 0) and  Input.is_action_just_pressed("move_player_up"):
 		velocity.y = -JUMP_SPEED
+		jump_counter -= 1
+		
+	elif is_on_floor():
+		jump_counter = 1
 	
 	# Animations
 	
