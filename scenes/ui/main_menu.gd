@@ -4,7 +4,7 @@ onready var play = $VBoxContainer/HBoxContainer/VBoxContainer2/Play
 onready var credits = $VBoxContainer/HBoxContainer/VBoxContainer2/Credits
 onready var exit = $VBoxContainer/HBoxContainer/VBoxContainer2/Exit
 onready var play2 = $VBoxContainer/HBoxContainer/VBoxContainer2/Play2
-onready var play3 = $VBoxContainer/HBoxContainer/VBoxContainer3/Play3
+onready var play3 = $VBoxContainer/HBoxContainer/VBoxContainer2/Play3
 
 func _ready():
 	play.connect("pressed",self,"_on_play_pressed")
