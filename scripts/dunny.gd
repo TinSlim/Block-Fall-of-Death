@@ -36,7 +36,7 @@ func _physics_process(delta):
 		jump_counter -= 1
 		
 	elif is_on_floor():
-		jump_counter = 1
+		jump_counter + 1
 	
 	# Animations
 	
