@@ -21,6 +21,7 @@ func rotate_piece():
 	PIVOT.rotation_degrees = PIVOT.rotation_degrees + 90
 	for cube in CUBES:
 		cube.rotation_degrees = cube.rotation_degrees - 90
+	reset_colission()
 
 func over_object():
 	for cube in CUBES:
