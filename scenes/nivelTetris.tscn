@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/grilla.gd" type="Script" id=1]
 [ext_resource path="res://scripts/suelo.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://sprites/evening sky.png" type="Texture" id=5]
 [ext_resource path="res://sprites/evening fence.png" type="Texture" id=6]
 [ext_resource path="res://scenes/bunny.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/lava.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 300.25, 9.25 )
@@ -79,6 +80,12 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Right_Wall"]
 position = Vector2( 0, -139 )
 shape = SubResource( 4 )
+
+[node name="LavaFloor" type="Node2D" parent="Node2D"]
+scale = Vector2( 16, 1 )
+
+[node name="Lava" parent="Node2D/LavaFloor" instance=ExtResource( 8 )]
+position = Vector2( 17, 303 )
 
 [node name="PowerUpJump" parent="." instance=ExtResource( 3 )]
 position = Vector2( 34, 267 )
