@@ -66,7 +66,12 @@ func set_sombra():
 		new_sombra.position = Vector2(-cube.position.y,cube.position.x)
 		SOMBRA.add_child(new_sombra)
 	SOMBRAS = SOMBRA.get_children()
-		
+
+func check_lava():
+	for cube in CUBES:
+		if cube.colission_lava:
+			return true
+	return false
 		
 #func avaible_rotation():
 		
@@ -76,6 +81,7 @@ func _physics_process(delta):
 	if delta_acc > 0.5 and Input.is_action_pressed("rotate"):
 		self.rotate_piece()
 		delta_acc = 0
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

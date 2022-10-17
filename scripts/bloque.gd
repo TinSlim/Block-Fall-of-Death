@@ -9,6 +9,7 @@ export var our_blocks = []
 var colission = false
 var colission_drcha = false
 var colission_izqu = false
+var colission_lava = false
 var selfStaticBody
 
 
@@ -42,7 +43,6 @@ func change_color(color):
 	SPRITE.modulate = color
 
 
-
 func _on_Derecha_body_entered(body):
 	if (body.name != "BloqueEstatico"):
 		colission_drcha = true
@@ -58,4 +58,9 @@ func _on_Suelo_body_entered(body):
 func _on_Izquierda_body_entered(body):
 	if (body.name != "BloqueEstatico"):
 		colission_izqu = true
+	pass # Replace with function body.
+
+func _on_Techo_area_entered(area):
+	if (area.name == "Lava"):
+		colission_lava = true
 	pass # Replace with function body.

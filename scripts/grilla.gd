@@ -34,6 +34,12 @@ var PIECES_COUNTER = 0
 
 var index_piece = 0
 
+var delta_lava = 0
+var lava_rising = 15
+var rising_num = 0
+
+onready var lava = self.find_node("LavaFloor")
+
 var ricky = preload("res://scenes/pieces/blue_ricky.tscn")
 #export(PacketScene) var Bloque
 
@@ -49,7 +55,18 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	
-	
+	delta_lava += delta
+	if delta_lava > lava_rising and rising_num == 0:
+		lava.position = Vector2(lava.position.x, lava.position.y - BLOCK_SIZE)
+		delta_lava = 0
+		rising_num += 1
+	elif rising_num > 0 and delta_lava > lava_rising / rising_num:
+		delta_lava = 0
+		rising_num += 1
+		for cube in $StaticCubes.get_children():
+			cube.position = Vector2(cube.position.x, cube.position.y + BLOCK_SIZE)
+		$Dunny.position.y += BLOCK_SIZE
+		
 	# tiene que bajar
 	
 	if playing and (movement_counter%movement_dif == 0):
@@ -60,13 +77,16 @@ func _physics_process(delta):
 			for cube in actual_object.CUBES:
 				var new_object = BloqueEstatico.instance()
 				new_object.change_color(actual_object.COLOR)
-				$Node2D.add_child(new_object)
+				$StaticCubes.add_child(new_object)
 				new_object.position = cube.global_position
 			actual_object.queue_free()
 		
 		else:	
 			actual_object.reset_colission()
 			actual_object.position.y += BLOCK_SIZE
+			if actual_object.check_lava():
+				actual_object.queue_free()
+				playing = false
 			
 
 	
@@ -78,7 +98,7 @@ func _physics_process(delta):
 			PIECES_ARRAY.shuffle()
 			index_piece = 0
 			
-		$Node2D.add_child(actual_object)
+		$StaticCubes.add_child(actual_object)
 		actual_object.position = Vector2(init_pos.x * BLOCK_SIZE,8)
 		playing = true
 	

@@ -11,6 +11,9 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_body_entered(body: Node):
+	if (body.name == "Dunny"):
+		# TODO Poner Game Over
+		get_tree().change_scene("res://scenes/ui/main_menu.tscn")
 	body.queue_free()
 
 

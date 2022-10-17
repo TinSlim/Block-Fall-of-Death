@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://sprites/blockWhite.png" type="Texture" id=1]
 [ext_resource path="res://scripts/bloque.gd" type="Script" id=2]
@@ -14,6 +14,8 @@ length = 51.0
 
 [sub_resource type="RayShape2D" id=5]
 length = 51.0
+
+[sub_resource type="RectangleShape2D" id=6]
 
 [node name="Node2D" type="Node2D"]
 scale = Vector2( 0.5, 0.5 )
@@ -44,6 +46,13 @@ shape = SubResource( 4 )
 rotation = 1.5708
 shape = SubResource( 5 )
 
+[node name="Techo" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Techo"]
+position = Vector2( 0, -60 )
+shape = SubResource( 6 )
+
 [connection signal="body_entered" from="Derecha" to="." method="_on_Derecha_body_entered"]
 [connection signal="body_entered" from="Suelo" to="." method="_on_Suelo_body_entered"]
 [connection signal="body_entered" from="Izquierda" to="." method="_on_Izquierda_body_entered"]
+[connection signal="area_entered" from="Techo" to="." method="_on_Techo_area_entered"]

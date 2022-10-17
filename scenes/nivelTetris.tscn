@@ -42,7 +42,7 @@ position = Vector2( 107.5, -47.375 )
 scale = Vector2( 1.57632, 1.89966 )
 texture = ExtResource( 4 )
 
-[node name="Node2D" type="Node2D" parent="Node2D"]
+[node name="StaticCubes" type="Node2D" parent="Node2D"]
 
 [node name="Dunny" parent="Node2D" instance=ExtResource( 7 )]
 position = Vector2( 577, 264 )
@@ -82,10 +82,10 @@ position = Vector2( 0, -139 )
 shape = SubResource( 4 )
 
 [node name="LavaFloor" type="Node2D" parent="Node2D"]
-scale = Vector2( 16, 1 )
+scale = Vector2( 18, 1 )
 
 [node name="Lava" parent="Node2D/LavaFloor" instance=ExtResource( 8 )]
-position = Vector2( 17, 303 )
+position = Vector2( 16.7778, 324 )
 
 [node name="PowerUpJump" parent="." instance=ExtResource( 3 )]
 position = Vector2( 34, 267 )
