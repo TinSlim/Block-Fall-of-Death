@@ -1,5 +1,9 @@
 extends Area2D
 
+func _physics_process(delta):
+	position.y = position.y  + 1
+	
 func _on_PowerUpJump_body_entered(body):
-	body.jump_counter = 2
-	queue_free()
+	if (body.name == "Dunny"):
+		body.jump_counter = 2
+		queue_free()

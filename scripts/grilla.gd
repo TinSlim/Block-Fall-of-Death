@@ -37,11 +37,21 @@ var index_piece = 0
 var delta_lava = 0
 var lava_rising = 15
 var rising_num = 0
+var actual_item = null
+var item_counter = 0
 
 onready var lava = self.find_node("LavaFloor")
 
 var ricky = preload("res://scenes/pieces/blue_ricky.tscn")
-#export(PacketScene) var Bloque
+
+var DOBLE_JUMP = preload("res://scenes/PowerUpJump.tscn")
+onready var POWER_UPS = [
+	DOBLE_JUMP
+	]
+
+var object_dif = 200
+var rng = RandomNumberGenerator.new()
+
 
 # grid [arriba parte-fila] [izquierda parte-columna]
 # Called when the node enters the scene tree for the first time.
@@ -63,11 +73,14 @@ func _physics_process(delta):
 	elif rising_num > 0 and delta_lava > lava_rising / rising_num:
 		delta_lava = 0
 		rising_num += 1
-		for cube in $StaticCubes.get_children():
-			cube.position = Vector2(cube.position.x, cube.position.y + BLOCK_SIZE)
-		$Dunny.position.y += BLOCK_SIZE
 		
-	# tiene que bajar
+		## Desplaza Bloques hacia abajo
+		for cube in $StaticCubes.get_children():
+			cube.position = Vector2(cube.position.x, cube.position.y - 1000)
+		$Dunny.position.y += BLOCK_SIZE
+		for cube in $StaticCubes.get_children():
+			cube.position = Vector2(cube.position.x, cube.position.y + 1000 + BLOCK_SIZE)
+		
 	
 	if playing and (movement_counter%movement_dif == 0):
 		
@@ -102,7 +115,7 @@ func _physics_process(delta):
 		actual_object.position = Vector2(init_pos.x * BLOCK_SIZE,8)
 		playing = true
 	
-	# Movimiento bloque
+	# Movimiento bloque hacia los lados con Input
 	if Input.is_action_just_pressed("move_claw_left") and not Input.is_action_pressed("move_claw_right") and not actual_object.left_object():
 		actual_object.reset_colission()
 		actual_object.position.x -= BLOCK_SIZE
@@ -112,6 +125,15 @@ func _physics_process(delta):
 	
 	# Caída bloque
 	movement_counter += 1
-
+	if (actual_item == null or !is_instance_valid(actual_item)):
+		
+		if (item_counter % object_dif == 0):
+			actual_item = POWER_UPS[0].instance()
+			actual_item.position = Vector2(rng.randf_range(0,BLOCK_SIZE* 19),0)
+			$Powers.add_child(actual_item)
+		item_counter += 1
+	#print(actual_item)
+	#print(movement_counter)
+	
 func _check_lines():
 	pass

@@ -20,3 +20,11 @@ func _on_body_entered(body: Node):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+
+
+func _on_Lava_area_entered(area):
+	if (area.name == "PowerUpJump"):
+		area.queue_free()
+	pass # Replace with function body.
