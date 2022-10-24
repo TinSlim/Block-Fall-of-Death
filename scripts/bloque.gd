@@ -12,6 +12,9 @@ var colission_izqu = false
 var colission_lava = false
 var selfStaticBody
 
+onready var fire = $BloqueEstatico/Fire
+onready var LavaClass = preload("res://scripts/lava.gd")
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -61,6 +64,11 @@ func _on_Izquierda_body_entered(body):
 	pass # Replace with function body.
 
 func _on_Techo_area_entered(area):
-	if (area.name == "Lava"):
+	if (area is LavaClass):
 		colission_lava = true
+	pass # Replace with function body.
+
+func _on_Suelo_area_entered(area):
+	if (area is LavaClass):
+		fire.burn()
 	pass # Replace with function body.

@@ -40,7 +40,7 @@ var rising_num = 0
 var actual_item = null
 var item_counter = 0
 
-onready var lava = self.find_node("LavaFloor")
+onready var lava_floor = $LavaFloor
 
 var ricky = preload("res://scenes/pieces/blue_ricky.tscn")
 
@@ -67,7 +67,7 @@ func _physics_process(delta):
 	
 	delta_lava += delta
 	if delta_lava > lava_rising and rising_num == 0:
-		lava.position = Vector2(lava.position.x, lava.position.y - BLOCK_SIZE)
+		lava_floor.move_up()
 		delta_lava = 0
 		rising_num += 1
 	elif rising_num > 0 and delta_lava > lava_rising / rising_num:

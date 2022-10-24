@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://sprites/blockWhite.png" type="Texture" id=1]
 [ext_resource path="res://scripts/bloque.gd" type="Script" id=2]
+[ext_resource path="res://scenes/fire.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -29,6 +30,8 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="BloqueEstatico"]
 texture = ExtResource( 1 )
 
+[node name="Fire" parent="BloqueEstatico" instance=ExtResource( 3 )]
+
 [node name="Derecha" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Derecha"]
@@ -53,6 +56,8 @@ position = Vector2( 0, -60 )
 shape = SubResource( 6 )
 
 [connection signal="body_entered" from="Derecha" to="." method="_on_Derecha_body_entered"]
+[connection signal="area_entered" from="Suelo" to="." method="_on_Suelo_area_entered"]
+[connection signal="area_shape_entered" from="Suelo" to="." method="_on_Suelo_area_shape_entered"]
 [connection signal="body_entered" from="Suelo" to="." method="_on_Suelo_body_entered"]
 [connection signal="body_entered" from="Izquierda" to="." method="_on_Izquierda_body_entered"]
 [connection signal="area_entered" from="Techo" to="." method="_on_Techo_area_entered"]

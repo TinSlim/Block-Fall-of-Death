@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scripts/fire.gd" type="Script" id=1]
+[ext_resource path="res://sprites/blockWhite.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "/* 
+Original shader from Fubucci – https://www.febucci.com/2019/05/fire-shader/ 
+Converted to Godot Shader Language by Godot Shaders - godotshaders.com/shader/2D-fire/
+*/
+
+shader_type canvas_item;
+
+uniform sampler2D noise_tex;
+uniform sampler2D gradient_tex;
+
+uniform vec4 brighter_color : hint_color = vec4(1.0, 0.8, 0.0, 1.0);
+uniform vec4 middle_color : hint_color  = vec4(1.0, 0.56, 0.0, 1.0);
+uniform vec4 darker_color : hint_color  = vec4(0.64, 0.2, 0.05, 1.0);
+
+uniform float spread : hint_range(0.0, 1.0) = 0.5;
+
+void fragment()
+{
+	
+	float noise_value = texture(noise_tex, UV + vec2(0.0, TIME)).x;
+	// The .yx swizzle is when using the built in horizontal gradient texture. If you have a vertical gradient texture remove .yx
+	float gradient_value = texture(gradient_tex, UV.yx).x;
+	
+	gradient_value -= smoothstep(spread, spread + 0.5, length(UV + vec2(-0.5, -0.5)) / spread);
+	
+	float step1 = step(noise_value, gradient_value);
+	float step2 = step(noise_value, gradient_value - 0.2);
+	float step3 = step(noise_value, gradient_value - 0.4);
+	
+	vec3 bd_color = mix(brighter_color.rgb, darker_color.rgb, step1 - step2);
+	
+	vec4 color = vec4(bd_color, step1);
+	color.rgb = mix(color.rgb, middle_color.rgb, step2 - step3);
+	
+	COLOR = color;
+}"
+
+[sub_resource type="Gradient" id=3]
+
+[sub_resource type="GradientTexture2D" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="OpenSimplexNoise" id=5]
+
+[sub_resource type="NoiseTexture" id=6]
+seamless = true
+noise = SubResource( 5 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/brighter_color = Color( 1, 0.8, 0, 1 )
+shader_param/middle_color = Color( 1, 0.56, 0, 1 )
+shader_param/darker_color = Color( 0.64, 0.2, 0.05, 1 )
+shader_param/spread = 0.7
+shader_param/noise_tex = SubResource( 6 )
+shader_param/gradient_tex = SubResource( 4 )
+
+[node name="Fire" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+material = SubResource( 2 )
+texture = ExtResource( 2 )
