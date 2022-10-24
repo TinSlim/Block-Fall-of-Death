@@ -21,9 +21,6 @@ func _on_body_entered(body: Node):
 #func _process(delta):
 #	pass
 
-
-
-
 func _on_Lava_area_entered(area):
 	if (area.name == "PowerUpJump"):
 		area.queue_free()

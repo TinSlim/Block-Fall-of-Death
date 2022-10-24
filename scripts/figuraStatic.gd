@@ -6,7 +6,8 @@ extends StaticBody2D
 export var x_quadrant = -1
 export var y_quadrant = -1
 export var colission = false
-
+onready var fire = $Fire
+onready var LavaClass = preload("res://scripts/lava.gd")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,3 +34,9 @@ func _on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, 
 func change_color(color):
 	var SPRITE = self.find_node("Sprite")
 	SPRITE.modulate = color
+
+
+func _on_Area2D_area_entered(area):
+	if (area is LavaClass):
+		fire.burn()
+	pass # Replace with function body.
