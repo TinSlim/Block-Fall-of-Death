@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/ui/credits.gd" type="Script" id=2]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 575.0
+margin_bottom = 275.0
+
+[node name="CreditsContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 550.0
+margin_bottom = 250.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ScrollContainer/CreditsContainer"]
+margin_right = 550.0
+margin_bottom = 47.0
+theme = ExtResource( 1 )
+theme_type_variation = "BigLabel"
+text = "Credits"
+align = 1
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/CreditsContainer"]
+margin_top = 51.0
+margin_right = 550.0
+margin_bottom = 55.0
+
+[node name="Label2" type="Label" parent="ScrollContainer/CreditsContainer"]
+margin_top = 59.0
+margin_right = 550.0
+margin_bottom = 83.0
+theme = ExtResource( 1 )
+theme_type_variation = "SmallLabel"
+text = "Assets"
+align = 1
+
+[node name="HSeparator2" type="HSeparator" parent="ScrollContainer/CreditsContainer"]
+margin_top = 87.0
+margin_right = 550.0
+margin_bottom = 91.0
+theme = ExtResource( 1 )

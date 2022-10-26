@@ -78,6 +78,7 @@ window/stretch/aspect="keep"
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+theme/custom="res://Resources/theme.tres"
 
 [importer_defaults]
 
