@@ -34,6 +34,7 @@ func _physics_process(delta):
 	if (is_on_floor() or jump_counter > 0) and  Input.is_action_just_pressed("move_player_up"):
 		velocity.y = -JUMP_SPEED
 		jump_counter -= 1
+		$Jump.play()
 		
 	elif is_on_floor():
 		jump_counter + 1

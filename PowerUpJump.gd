@@ -6,4 +6,5 @@ func _physics_process(delta):
 func _on_PowerUpJump_body_entered(body):
 	if (body.name == "Dunny"):
 		body.jump_counter = 2
+		$Pop.play()
 		queue_free()
