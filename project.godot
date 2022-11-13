@@ -66,6 +66,10 @@ config/name="Block Fall of Death"
 run/main_scene="res://scenes/ui/main_menu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+DB="*res://data/db.gd"
+
 [display]
 
 window/size/width=600

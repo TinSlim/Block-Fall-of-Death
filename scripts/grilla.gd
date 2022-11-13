@@ -52,6 +52,10 @@ onready var POWER_UPS = [
 var object_dif = 200
 var rng = RandomNumberGenerator.new()
 
+# Score variables
+onready var score_number = $"../ScoreNumber"
+var acc_time = 0
+var score_per_second = 10
 
 # grid [arriba parte-fila] [izquierda parte-columna]
 # Called when the node enters the scene tree for the first time.
@@ -61,9 +65,16 @@ func _ready():
 		grid.append([])
 		for y in range(grid_size.y):
 			grid[x].append(0)
+	lava_floor.MAIN_SCENE = self
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	
+	# Scoring process
+	acc_time += delta
+	if acc_time >= 1:
+		acc_time -= 1
+		score_number.score += score_per_second
 	
 	delta_lava += delta
 	if delta_lava > lava_rising and rising_num == 0:
@@ -132,8 +143,10 @@ func _physics_process(delta):
 			actual_item.position = Vector2(rng.randf_range(0,BLOCK_SIZE* 19),0)
 			$Powers.add_child(actual_item)
 		item_counter += 1
-	#print(actual_item)
-	#print(movement_counter)
-	
-func _check_lines():
-	pass
+
+# Function triggered if Bunny touch the lava
+# It updates the highscore and show the game over animation
+func game_over():
+	score_number.update_db()
+	# Gamer Over Animation
+	get_tree().change_scene("res://scenes/ui/main_menu.tscn")

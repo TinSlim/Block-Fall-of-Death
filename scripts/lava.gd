@@ -1,27 +1,16 @@
 extends Area2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var lava_floor = null
 
 func _on_body_entered(body: Node):
 	if (body.name == "Dunny"):
-		# TODO Poner Game Over
-		get_tree().change_scene("res://scenes/ui/main_menu.tscn")
+		if not lava_floor:
+			print("Not lava_floor at lava.gd")
+			return
+		lava_floor.game_over()
+		
 	body.queue_free()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 func _on_Lava_area_entered(area):
 	if (area.name == "PowerUpJump"):
 		area.queue_free()
-	pass # Replace with function body.
