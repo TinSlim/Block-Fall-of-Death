@@ -3,9 +3,9 @@
 [ext_resource path="res://scripts/grilla.gd" type="Script" id=1]
 [ext_resource path="res://scripts/suelo.gd" type="Script" id=2]
 [ext_resource path="res://scripts/lava_floor.gd" type="Script" id=3]
-[ext_resource path="res://sprites/evening buildings front.png" type="Texture" id=4]
-[ext_resource path="res://sprites/evening sky.png" type="Texture" id=5]
-[ext_resource path="res://sprites/evening fence.png" type="Texture" id=6]
+[ext_resource path="res://sprites/night buildings front.png" type="Texture" id=4]
+[ext_resource path="res://sprites/night fence.png" type="Texture" id=5]
+[ext_resource path="res://sprites/night sky.png" type="Texture" id=6]
 [ext_resource path="res://scenes/bunny.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sound/Of Far Different Nature - 0 to 100 (CC-BY).ogg" type="AudioStream" id=8]
 [ext_resource path="res://scenes/ui/score.tscn" type="PackedScene" id=9]
@@ -37,7 +37,7 @@ position = Vector2( 191, 189 )
 show_behind_parent = true
 position = Vector2( 110.5, -49.5 )
 scale = Vector2( 1.58158, 1.55 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="Sprite2" type="Sprite" parent="NivelTetris/BackGround"]
 position = Vector2( 107.5, -47.375 )
@@ -61,7 +61,7 @@ shape = SubResource( 2 )
 [node name="Sprite" type="Sprite" parent="NivelTetris/Floor"]
 position = Vector2( 457.5, 284.304 )
 scale = Vector2( 0.789792, 0.479529 )
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="Left_Wall" type="StaticBody2D" parent="NivelTetris"]
 position = Vector2( -10, 289 )
