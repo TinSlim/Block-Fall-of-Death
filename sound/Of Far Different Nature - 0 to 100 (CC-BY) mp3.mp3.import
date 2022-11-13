@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Of Far Different Nature - 0 to 100 (CC-BY) mp3.mp3-9da708ffbbd5dc741df00b333118a86c.mp3str"
+
+[deps]
+
+source_file="res://sound/Of Far Different Nature - 0 to 100 (CC-BY) mp3.mp3"
+dest_files=[ "res://.import/Of Far Different Nature - 0 to 100 (CC-BY) mp3.mp3-9da708ffbbd5dc741df00b333118a86c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

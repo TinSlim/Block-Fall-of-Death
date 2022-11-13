@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://scripts/dunny.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Idle (34x44).png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://sprites/Fall.png" type="Texture" id=5]
 [ext_resource path="res://scenes/ui/pause_menu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://sound/Jump 1.wav" type="AudioStream" id=7]
+[ext_resource path="res://scenes/SettingsMenu.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CircleShape2D" id=35]
 
@@ -414,17 +415,11 @@ hframes = 10
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 6 )]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -155.5
-margin_top = -128.0
-margin_right = 155.5
-margin_bottom = 128.0
-__meta__ = {
-"_edit_use_anchors_": true
-}
+
+[node name="Settings" parent="CanvasLayer" instance=ExtResource( 8 )]
+pause_mode = 2
+margin_top = 0.0
+margin_bottom = 0.0
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )

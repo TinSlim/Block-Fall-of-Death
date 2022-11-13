@@ -7,7 +7,7 @@
 [ext_resource path="res://sprites/evening sky.png" type="Texture" id=5]
 [ext_resource path="res://sprites/evening fence.png" type="Texture" id=6]
 [ext_resource path="res://scenes/bunny.tscn" type="PackedScene" id=7]
-[ext_resource path="res://sound/Of Far Different Nature - 0 to 100 (CC-BY).ogg" type="AudioStream" id=8]
+[ext_resource path="res://sound/Of Far Different Nature - 0 to 100 (CC-BY) mp3.mp3" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 300.25, 9.25 )
@@ -87,5 +87,7 @@ script = ExtResource( 3 )
 [node name="Powers" type="Node2D" parent="Node2D"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 8 )
 autoplay = true
+bus = "Music"

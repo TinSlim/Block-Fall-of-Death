@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/SettingsMenu.gd" type="Script" id=1]
+[ext_resource path="res://sound/Jump 1.wav" type="AudioStream" id=3]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 2.0
+margin_bottom = 2.0
+script = ExtResource( 1 )
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+margin_left = 203.0
+margin_top = 25.0
+margin_right = 397.0
+margin_bottom = 275.0
+size_flags_horizontal = 4
+size_flags_vertical = 5
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+margin_right = 194.0
+margin_bottom = 24.0
+text = "Settings"
+align = 1
+
+[node name="Fullscreen" type="CheckBox" parent="VBoxContainer2"]
+unique_name_in_owner = true
+margin_top = 28.0
+margin_right = 194.0
+margin_bottom = 60.0
+text = "Fullscreen"
+
+[node name="Label1" type="Label" parent="VBoxContainer2"]
+margin_top = 64.0
+margin_right = 194.0
+margin_bottom = 88.0
+text = "Music"
+
+[node name="Music" type="HSlider" parent="VBoxContainer2"]
+unique_name_in_owner = true
+margin_top = 92.0
+margin_right = 194.0
+margin_bottom = 108.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Label2" type="Label" parent="VBoxContainer2"]
+margin_top = 112.0
+margin_right = 194.0
+margin_bottom = 136.0
+
+[node name="Label3" type="Label" parent="VBoxContainer2"]
+margin_top = 140.0
+margin_right = 194.0
+margin_bottom = 164.0
+text = "Sound  Effects"
+
+[node name="Sfx" type="HSlider" parent="VBoxContainer2"]
+unique_name_in_owner = true
+margin_top = 168.0
+margin_right = 194.0
+margin_bottom = 184.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Close" type="Button" parent="VBoxContainer2"]
+margin_top = 188.0
+margin_right = 194.0
+margin_bottom = 218.0
+text = "Close"
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="VBoxContainer2"]
+stream = ExtResource( 3 )
+autoplay = true
+bus = "SFX"

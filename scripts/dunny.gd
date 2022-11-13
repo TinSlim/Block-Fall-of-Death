@@ -13,10 +13,15 @@ onready var anim_player = $AnimationPlayer
 onready var anim_tree = $AnimationTree
 onready var playback = anim_tree.get("parameters/playback")
 onready var pivot = $Pivot
+onready var pause_menu = $CanvasLayer/PauseMenu
+onready var settings = $CanvasLayer/Settings
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim_tree.active = true
+	pause_menu.connect("settings_pressed",self, "_on_settings_pressed")
+	settings.connect("close_pressed",self,"_on_closed_pressed")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -56,3 +61,11 @@ func _physics_process(delta):
 			playback.travel("jump")
 		else:
 			playback.travel("fall")
+			
+func _on_settings_pressed():
+	pause_menu.hide()
+	settings.show()
+	
+func _on_closed_pressed():
+	pause_menu.show()
+	settings.hide()
