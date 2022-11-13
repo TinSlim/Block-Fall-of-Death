@@ -1,0 +1,30 @@
+[gd_scene format=2]
+
+[node name="Score" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -250.0
+margin_bottom = -142.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 325.0
+margin_bottom = 133.0
+alignment = 1
+
+[node name="Highscore" type="Label" parent="VBoxContainer"]
+margin_top = 28.0
+margin_right = 300.0
+margin_bottom = 52.0
+text = "Highscore:"
+align = 2
+uppercase = true
+
+[node name="Score" type="Label" parent="VBoxContainer"]
+margin_top = 56.0
+margin_right = 300.0
+margin_bottom = 80.0
+text = "Score:"
+align = 2
+uppercase = true
