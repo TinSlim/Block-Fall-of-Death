@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/grilla.gd" type="Script" id=1]
 [ext_resource path="res://scripts/suelo.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://sound/Of Far Different Nature - 0 to 100 (CC-BY) mp3.mp3" type="AudioStream" id=8]
 [ext_resource path="res://scenes/ui/score.tscn" type="PackedScene" id=9]
 [ext_resource path="res://sprites/night buildings front.png" type="Texture" id=10]
+[ext_resource path="res://sprites/night sky - copia.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 128 )
@@ -47,21 +48,6 @@ margin_top = -18.0
 margin_right = 606.0
 margin_bottom = 84.0
 
-[node name="BackGround" type="StaticBody2D" parent="Node2D/Camera2D/Static"]
-show_behind_parent = true
-position = Vector2( 191, 189 )
-
-[node name="Sprite" type="Sprite" parent="Node2D/Camera2D/Static/BackGround"]
-show_behind_parent = true
-position = Vector2( 110.5, -49.5 )
-scale = Vector2( 1.58158, 1.55 )
-texture = ExtResource( 6 )
-
-[node name="Sprite2" type="Sprite" parent="Node2D/Camera2D/Static/BackGround"]
-position = Vector2( 107.5, -47.375 )
-scale = Vector2( 1.57632, 1.89966 )
-texture = ExtResource( 10 )
-
 [node name="Left_Wall" type="StaticBody2D" parent="Node2D/Camera2D/Static"]
 position = Vector2( -10, 289 )
 __meta__ = {
@@ -81,6 +67,21 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Camera2D/Static/Right_Wall"]
 position = Vector2( 0, -139 )
 shape = SubResource( 4 )
+
+[node name="BackGround" type="StaticBody2D" parent="Node2D"]
+show_behind_parent = true
+position = Vector2( 191, 189 )
+
+[node name="Sprite" type="Sprite" parent="Node2D/BackGround"]
+show_behind_parent = true
+position = Vector2( 110.5, -49.5 )
+scale = Vector2( 1.58158, 1.55 )
+texture = ExtResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="Node2D/BackGround"]
+position = Vector2( 107.5, -47.375 )
+scale = Vector2( 1.57632, 1.89966 )
+texture = ExtResource( 10 )
 
 [node name="StaticCubes" type="Node2D" parent="Node2D"]
 
@@ -105,6 +106,16 @@ texture = ExtResource( 5 )
 script = ExtResource( 3 )
 
 [node name="Powers" type="Node2D" parent="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Node2D"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Node2D/ParallaxBackground"]
+motion_mirroring = Vector2( 0, 275 )
+
+[node name="Sprite" type="Sprite" parent="Node2D/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 300, -140 )
+scale = Vector2( 1.582, 1.55 )
+texture = ExtResource( 11 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
