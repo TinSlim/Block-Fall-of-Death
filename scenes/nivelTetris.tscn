@@ -1,11 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/grilla.gd" type="Script" id=1]
 [ext_resource path="res://scripts/suelo.gd" type="Script" id=2]
 [ext_resource path="res://scripts/lava_floor.gd" type="Script" id=3]
 [ext_resource path="res://scenes/ui/score_number.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/night fence.png" type="Texture" id=5]
+[ext_resource path="res://sprites/night sky.png" type="Texture" id=6]
 [ext_resource path="res://scenes/bunny.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sound/Of Far Different Nature - 0 to 100 (CC-BY) mp3.mp3" type="AudioStream" id=8]
+[ext_resource path="res://scenes/ui/score.tscn" type="PackedScene" id=9]
+[ext_resource path="res://sprites/night buildings front.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 300.25, 9.25 )
@@ -33,10 +37,12 @@ position = Vector2( 191, 189 )
 show_behind_parent = true
 position = Vector2( 110.5, -49.5 )
 scale = Vector2( 1.58158, 1.55 )
+texture = ExtResource( 6 )
 
 [node name="Sprite2" type="Sprite" parent="Node2D/BackGround"]
 position = Vector2( 107.5, -47.375 )
 scale = Vector2( 1.57632, 1.89966 )
+texture = ExtResource( 10 )
 
 [node name="StaticCubes" type="Node2D" parent="Node2D"]
 
@@ -55,6 +61,7 @@ shape = SubResource( 2 )
 [node name="Sprite" type="Sprite" parent="Node2D/Floor"]
 position = Vector2( 457.5, 284.304 )
 scale = Vector2( 0.789792, 0.479529 )
+texture = ExtResource( 5 )
 
 [node name="Left_Wall" type="StaticBody2D" parent="Node2D"]
 position = Vector2( -10, 289 )
@@ -88,4 +95,14 @@ volume_db = -26.226
 autoplay = true
 bus = "Music"
 
+[node name="Score" parent="." instance=ExtResource( 9 )]
+margin_left = 343.0
+margin_top = -18.0
+margin_right = 551.0
+margin_bottom = 84.0
+
 [node name="ScoreNumber" parent="." instance=ExtResource( 4 )]
+margin_left = 506.0
+margin_top = -18.0
+margin_right = 606.0
+margin_bottom = 84.0
