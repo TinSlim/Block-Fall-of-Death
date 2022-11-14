@@ -130,13 +130,24 @@ func _physics_process(delta):
 		actual_object.position = Vector2(init_pos.x * BLOCK_SIZE,8 - (going_down * BLOCK_SIZE))
 		playing = true
 	
+	#######
+	## Movimiento de bloques/garra
+	#######
 	# Movimiento bloque hacia los lados con Input
 	if Input.is_action_just_pressed("move_claw_left") and not Input.is_action_pressed("move_claw_right") and not actual_object.left_object():
 		actual_object.reset_colission()
 		actual_object.position.x -= BLOCK_SIZE
+	
 	if Input.is_action_just_pressed("move_claw_right") and not Input.is_action_pressed("move_claw_left") and not actual_object.right_object():
 		actual_object.reset_colission()
 		actual_object.position.x += BLOCK_SIZE
+	
+	if Input.is_action_pressed("move_claw_down"):
+		movement_dif = 15
+	else:
+		movement_dif = 30
+
+		
 	
 	# Caída bloque
 	movement_counter += 1
