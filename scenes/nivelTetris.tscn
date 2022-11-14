@@ -11,14 +11,14 @@
 [ext_resource path="res://scenes/ui/score.tscn" type="PackedScene" id=9]
 [ext_resource path="res://sprites/night buildings front.png" type="Texture" id=10]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 300.25, 9.25 )
-
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 128 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 10, 149 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 300.25, 9.25 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -29,20 +29,58 @@ script = ExtResource( 1 )
 position = Vector2( 0, 288 )
 script = ExtResource( 2 )
 
-[node name="BackGround" type="StaticBody2D" parent="Node2D"]
+[node name="Camera2D" type="Camera2D" parent="Node2D"]
+offset = Vector2( 300, 150 )
+current = true
+
+[node name="Static" type="Node2D" parent="Node2D/Camera2D"]
+
+[node name="Score" parent="Node2D/Camera2D/Static" instance=ExtResource( 9 )]
+margin_left = 343.0
+margin_top = -18.0
+margin_right = 551.0
+margin_bottom = 84.0
+
+[node name="ScoreNumber" parent="Node2D/Camera2D/Static" instance=ExtResource( 4 )]
+margin_left = 506.0
+margin_top = -18.0
+margin_right = 606.0
+margin_bottom = 84.0
+
+[node name="BackGround" type="StaticBody2D" parent="Node2D/Camera2D/Static"]
 show_behind_parent = true
 position = Vector2( 191, 189 )
 
-[node name="Sprite" type="Sprite" parent="Node2D/BackGround"]
+[node name="Sprite" type="Sprite" parent="Node2D/Camera2D/Static/BackGround"]
 show_behind_parent = true
 position = Vector2( 110.5, -49.5 )
 scale = Vector2( 1.58158, 1.55 )
 texture = ExtResource( 6 )
 
-[node name="Sprite2" type="Sprite" parent="Node2D/BackGround"]
+[node name="Sprite2" type="Sprite" parent="Node2D/Camera2D/Static/BackGround"]
 position = Vector2( 107.5, -47.375 )
 scale = Vector2( 1.57632, 1.89966 )
 texture = ExtResource( 10 )
+
+[node name="Left_Wall" type="StaticBody2D" parent="Node2D/Camera2D/Static"]
+position = Vector2( -10, 289 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Camera2D/Static/Left_Wall"]
+position = Vector2( 0, -118 )
+shape = SubResource( 3 )
+
+[node name="Right_Wall" type="StaticBody2D" parent="Node2D/Camera2D/Static"]
+position = Vector2( 611, 289 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Camera2D/Static/Right_Wall"]
+position = Vector2( 0, -139 )
+shape = SubResource( 4 )
 
 [node name="StaticCubes" type="Node2D" parent="Node2D"]
 
@@ -63,26 +101,6 @@ position = Vector2( 457.5, 284.304 )
 scale = Vector2( 0.789792, 0.479529 )
 texture = ExtResource( 5 )
 
-[node name="Left_Wall" type="StaticBody2D" parent="Node2D"]
-position = Vector2( -10, 289 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Left_Wall"]
-position = Vector2( 0, -118 )
-shape = SubResource( 3 )
-
-[node name="Right_Wall" type="StaticBody2D" parent="Node2D"]
-position = Vector2( 611, 289 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Right_Wall"]
-position = Vector2( 0, -139 )
-shape = SubResource( 4 )
-
 [node name="LavaFloor" type="Node2D" parent="Node2D"]
 script = ExtResource( 3 )
 
@@ -94,15 +112,3 @@ stream = ExtResource( 8 )
 volume_db = -26.226
 autoplay = true
 bus = "Music"
-
-[node name="Score" parent="." instance=ExtResource( 9 )]
-margin_left = 343.0
-margin_top = -18.0
-margin_right = 551.0
-margin_bottom = 84.0
-
-[node name="ScoreNumber" parent="." instance=ExtResource( 4 )]
-margin_left = 506.0
-margin_top = -18.0
-margin_right = 606.0
-margin_bottom = 84.0

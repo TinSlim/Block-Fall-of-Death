@@ -33,6 +33,7 @@ onready var PIECES_ARRAY = [
 var PIECES_COUNTER = 0
 
 var index_piece = 0
+var going_down = 0
 
 var delta_lava = 0
 var lava_rising = 15
@@ -53,7 +54,7 @@ var object_dif = 200
 var rng = RandomNumberGenerator.new()
 
 # Score variables
-onready var score_number = $"../ScoreNumber"
+onready var score_number = $"Camera2D/Static/ScoreNumber"
 var acc_time = 0
 var score_per_second = 10
 
@@ -85,12 +86,15 @@ func _physics_process(delta):
 		delta_lava = 0
 		rising_num += 1
 		
+		lava_floor.move_up()
+		$Camera2D.position.y-= BLOCK_SIZE
+		going_down += 1
 		## Desplaza Bloques hacia abajo
-		for cube in $StaticCubes.get_children():
-			cube.position = Vector2(cube.position.x, cube.position.y - 1000)
-		$Dunny.position.y += BLOCK_SIZE
-		for cube in $StaticCubes.get_children():
-			cube.position = Vector2(cube.position.x, cube.position.y + 1000 + BLOCK_SIZE)
+		##for cube in $StaticCubes.get_children():
+		##	cube.position = Vector2(cube.position.x, cube.position.y - 1000)
+		##$Dunny.position.y += BLOCK_SIZE
+		##for cube in $StaticCubes.get_children():
+		##	cube.position = Vector2(cube.position.x, cube.position.y + 1000 + BLOCK_SIZE)
 		
 	
 	if playing and (movement_counter%movement_dif == 0):
@@ -123,7 +127,7 @@ func _physics_process(delta):
 			index_piece = 0
 			
 		$StaticCubes.add_child(actual_object)
-		actual_object.position = Vector2(init_pos.x * BLOCK_SIZE,8)
+		actual_object.position = Vector2(init_pos.x * BLOCK_SIZE,8 - (going_down * BLOCK_SIZE))
 		playing = true
 	
 	# Movimiento bloque hacia los lados con Input
@@ -137,10 +141,9 @@ func _physics_process(delta):
 	# Caída bloque
 	movement_counter += 1
 	if (actual_item == null or !is_instance_valid(actual_item)):
-		
 		if (item_counter % object_dif == 0):
 			actual_item = POWER_UPS[0].instance()
-			actual_item.position = Vector2(rng.randf_range(0,BLOCK_SIZE* 19),0)
+			actual_item.position = Vector2(rng.randf_range(0,BLOCK_SIZE* 19),0 - (going_down * BLOCK_SIZE))
 			$Powers.add_child(actual_item)
 		item_counter += 1
 
