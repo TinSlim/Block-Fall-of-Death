@@ -423,4 +423,5 @@ margin_bottom = 0.0
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+volume_db = -15.0
 bus = "SFX"
