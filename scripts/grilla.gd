@@ -144,6 +144,8 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("move_claw_down"):
 		movement_dif = 15
+	elif Input.is_action_pressed("move_claw_up"):
+		movement_dif = 1
 	else:
 		movement_dif = 30
 
