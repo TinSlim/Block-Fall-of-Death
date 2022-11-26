@@ -8,6 +8,7 @@ var lava_count_number setget _lava_count_number_set
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	update_next_piece()
+	_lava_count_number_set(15)
 
 func update_next_piece():
 	# Delete last piece

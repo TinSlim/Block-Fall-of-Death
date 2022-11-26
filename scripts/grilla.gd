@@ -15,9 +15,12 @@ var BloqueEstatico = preload("res://scenes/figuraStatic.tscn")
 
 var going_down = 0
 
-var delta_lava = 0
-var lava_rising = 15
-var rising_num = 0
+# Lava rising variables
+var initial_lava_countdown = 15
+var rising_number = 1
+var lava_countdown = initial_lava_countdown / rising_number
+var min_lava_countdown = 1.5
+
 var actual_item = null
 var item_counter = 0
 
@@ -63,26 +66,23 @@ func _physics_process(delta):
 		acc_time -= 1
 		score_number.score += score_per_second
 	
-	delta_lava += delta
-	if delta_lava > lava_rising and rising_num == 0:
+	# Update lava countdown
+	lava_countdown -= delta
+	if lava_countdown <= 0:
+		# Move lava up
 		lava_floor.move_up()
-		delta_lava = 0
-		rising_num += 1
-	elif rising_num > 0 and delta_lava > lava_rising / rising_num:
-		delta_lava = 0
-		rising_num += 1
-		
-		lava_floor.move_up()
-		$Camera2D.position.y-= BLOCK_SIZE
-		going_down += 1
-		## Desplaza Bloques hacia abajo
-		##for cube in $StaticCubes.get_children():
-		##	cube.position = Vector2(cube.position.x, cube.position.y - 1000)
-		##$Dunny.position.y += BLOCK_SIZE
-		##for cube in $StaticCubes.get_children():
-		##	cube.position = Vector2(cube.position.x, cube.position.y + 1000 + BLOCK_SIZE)
-		
+		if rising_number > 1:
+			$Camera2D.position.y -= BLOCK_SIZE
+			going_down += 1
+		# Update countdown
+		rising_number += 1
+		lava_countdown = initial_lava_countdown / rising_number
+		# Force minimum lava countdown
+		if lava_countdown < min_lava_countdown:
+			lava_countdown = min_lava_countdown
 	
+	status_board.update_lava_count(stepify(lava_countdown,0.1))
+
 	if playing and (movement_counter%movement_dif == 0):
 		
 		# si tiene bloque abajo, se queda ahí
