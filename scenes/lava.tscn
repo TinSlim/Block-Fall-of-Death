@@ -18,6 +18,8 @@ position = Vector2( 2, -2 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 1.52588e-05 )
+scale = Vector2( 3.63636, 3.63636 )
 texture = ExtResource( 2 )
 
 [connection signal="area_entered" from="." to="." method="_on_Lava_area_entered"]
