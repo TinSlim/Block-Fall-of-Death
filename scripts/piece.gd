@@ -2,9 +2,6 @@ extends Node2D
 
 class_name Piece
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var delta_acc = 0
 onready var PIVOT = self.find_node("Pivot")
 onready var CUBES = self.find_node("Cubes").get_children()
@@ -12,6 +9,7 @@ onready var SOMBRA = self.find_node("Sombra")
 onready var SOMBRAS = []
 export var colission = false
 export var COLOR = Color(0, 0, 0)
+var rotate = true
 
 var Bloque = preload("res://scenes/figura.tscn")
 
@@ -73,12 +71,13 @@ func check_lava():
 			return true
 	return false
 		
-#func avaible_rotation():
+func disable_rotation():
+	self.rotate = false
 		
 # Called when the node enters the scene tree for the first time.
 func _physics_process(delta):
 	delta_acc = delta_acc + delta
-	if delta_acc > 0.5 and Input.is_action_pressed("rotate"):
+	if self.rotate and delta_acc > 0.5 and Input.is_action_pressed("rotate"):
 		self.rotate_piece()
 		delta_acc = 0
 	

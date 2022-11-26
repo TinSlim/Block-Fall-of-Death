@@ -69,6 +69,7 @@ config/icon="res://icon.png"
 [autoload]
 
 DB="*res://data/db.gd"
+PiecesArray="*res://scripts/pieces_array.gd"
 
 [display]
 

@@ -8,31 +8,11 @@ var actual_object = null
 var movement_counter = 0
 var movement_dif = 30
 var init_pos = Vector2(8,0)
-var BLOCK_SIZE = 32
+var BLOCK_SIZE = PiecesArray.BLOCK_SIZE
 
 var Bloque = preload("res://scenes/figura.tscn")
 var BloqueEstatico = preload("res://scenes/figuraStatic.tscn")
 
-var SCENE_BLUE_RICKY = preload("res://scenes/pieces/blue_ricky.tscn")
-var SCENE_ORANGE_RICKY = preload("res://scenes/pieces/orange_ricky.tscn")
-var SCENE_CLEVELAND_Z = preload("res://scenes/pieces/cleveland_z.tscn")
-var SCENE_RHODE_ISLAND_Z = preload("res://scenes/pieces/rhode_island_z.tscn")
-var SCENE_HERO = preload("res://scenes/pieces/hero.tscn")
-var SCENE_SMASHBOY = preload("res://scenes/pieces/smashboy.tscn")
-var SCENE_TEEWEE = preload("res://scenes/pieces/teewee.tscn")
-
-onready var PIECES_ARRAY = [
-	SCENE_BLUE_RICKY,
-	SCENE_ORANGE_RICKY,
-	SCENE_CLEVELAND_Z,
-	SCENE_RHODE_ISLAND_Z,
-	SCENE_HERO,
-	SCENE_SMASHBOY,
-	SCENE_TEEWEE
-	]
-var PIECES_COUNTER = 0
-
-var index_piece = 0
 var going_down = 0
 
 var delta_lava = 0
@@ -58,15 +38,21 @@ onready var score_number = $"Camera2D/Static/ScoreNumber"
 var acc_time = 0
 var score_per_second = 10
 
+onready var score_board = $Camera2D/Static/ScoreBoard
+onready var status_board = $Camera2D/Static/StatusBoard
+
+
 # grid [arriba parte-fila] [izquierda parte-columna]
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	PIECES_ARRAY.shuffle()
 	for x in range(grid_size.x):
 		grid.append([])
 		for y in range(grid_size.y):
 			grid[x].append(0)
 	lava_floor.MAIN_SCENE = self
+	# move dashboards
+	score_board.position = Vector2(-100,0) # TODO adjust this position
+	status_board.position = Vector2(500,0) # TODO adjust this position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -120,11 +106,9 @@ func _physics_process(delta):
 	
 	# Si no juega crea un bloque
 	if !playing:
-		actual_object = PIECES_ARRAY[index_piece].instance()
-		index_piece = index_piece + 1
-		if index_piece == 7:
-			PIECES_ARRAY.shuffle()
-			index_piece = 0
+		actual_object = PiecesArray.get_piece().instance()
+		PiecesArray.update_index()
+		status_board.update_piece()
 			
 		$StaticCubes.add_child(actual_object)
 		actual_object.position = Vector2(init_pos.x * BLOCK_SIZE,8 - (going_down * BLOCK_SIZE))
