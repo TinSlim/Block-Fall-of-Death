@@ -18,7 +18,7 @@ func update_next_piece():
 	var next_piece : Node2D = PiecesArray.get_piece().instance()
 	next_piece.disable_rotation()
 	piece_container.add_child(next_piece)
-	next_piece.position = PiecesArray.get_adjust() + Vector2(39, 121)
+	next_piece.position = PiecesArray.get_adjust() + Vector2(65, 186)
 
 func _lava_count_number_set(value):
 	lava_count_number = value

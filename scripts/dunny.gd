@@ -23,10 +23,6 @@ func _ready():
 	pause_menu.connect("settings_pressed",self, "_on_settings_pressed")
 	settings.connect("close_pressed",self,"_on_closed_pressed")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
@@ -56,7 +52,7 @@ func _physics_process(delta):
 			playback.travel("run")
 		else:
 			playback.travel("idle")
-	else:	#TODO fix landing visual bug
+	else:
 		if velocity.y < 0:
 			playback.travel("jump")
 		else:

@@ -6,9 +6,12 @@ var playing = false
 var actual_object = null
 var movement_counter = 0
 var movement_dif = 30
-var init_pos = Vector2(8,0)
+var init_pos = Vector2(140 + 4 + 8*BLOCK_SIZE - (BLOCK_SIZE/2), 2 + (BLOCK_SIZE/2))
 
 var BloqueEstatico = preload("res://scenes/figuraStatic.tscn")
+
+# Bunny
+onready var bunny = $Bunny
 
 # Lava rising variables
 var initial_lava_countdown = 15
@@ -43,11 +46,15 @@ var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# init lava floor
+	# Locate Bunny
+	# X: SCORE_DASHBOARD + OFFSET + 14 BLOCK
+	# Y : OFFSET + 12 BLOCK - BUNNY SIZE / 2 - BUNNY OFFSET
+	bunny.position = Vector2(140 + 4 + 14*BLOCK_SIZE, 2 + 13*BLOCK_SIZE - (BLOCK_SIZE/2)  - 2)
+	# Init lava floor
 	lava_floor.MAIN_SCENE = self
-	# move dashboards
+	# Move dashboards
 	score_board.position = Vector2(0,0) # TODO adjust this position
-	status_board.position = Vector2(500,0) # TODO adjust this position
+	status_board.position = Vector2(660,0) # TODO adjust this position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -102,7 +109,7 @@ func _physics_process(delta):
 		status_board.update_piece()
 			
 		$StaticCubes.add_child(actual_object)
-		actual_object.position = Vector2(init_pos.x * BLOCK_SIZE,8 - (going_down * BLOCK_SIZE))
+		actual_object.position = Vector2(init_pos.x, init_pos.y - (going_down * BLOCK_SIZE))
 		playing = true
 	
 	#######
@@ -131,7 +138,7 @@ func _physics_process(delta):
 	if (actual_item == null or !is_instance_valid(actual_item)):
 		if (item_counter % object_dif == 0):
 			actual_item = POWER_UPS[0].instance()
-			actual_item.position = Vector2(rng.randf_range(0,BLOCK_SIZE* 19),0 - (going_down * BLOCK_SIZE))
+			actual_item.position = Vector2(init_pos.x + rng.randi_range(-7,8) * BLOCK_SIZE, init_pos.y - (going_down * BLOCK_SIZE))
 			$Powers.add_child(actual_item)
 		item_counter += 1
 

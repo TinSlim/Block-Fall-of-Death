@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/night fence.png-65f677ddc207ea78c1c7cd58f8616fcd.stex"
+path="res://.import/floor.png-8870646e23ec8c3ad77089faabc9e773.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/night fence.png"
-dest_files=[ "res://.import/night fence.png-65f677ddc207ea78c1c7cd58f8616fcd.stex" ]
+source_file="res://sprites/floor.png"
+dest_files=[ "res://.import/floor.png-8870646e23ec8c3ad77089faabc9e773.stex" ]
 
 [params]
 

@@ -3,7 +3,7 @@ extends Area2D
 var lava_floor = null
 
 func _on_body_entered(body: Node):
-	if (body.name == "Dunny"):
+	if (body.name == "Bunny"):
 		if not lava_floor:
 			print("Not lava_floor at lava.gd")
 			return

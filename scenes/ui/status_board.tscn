@@ -14,19 +14,22 @@ size = 24
 font_data = ExtResource( 2 )
 
 [node name="StatusBoard" type="Node2D"]
+z_index = 1
 script = ExtResource( 4 )
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 63.5, 161.5 )
-scale = Vector2( 0.131, 0.255777 )
+position = Vector2( 70, 225 )
 texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 140, 450 )
 
 [node name="Status" type="Node2D" parent="."]
 script = ExtResource( 3 )
 
 [node name="StatusContainer" type="MarginContainer" parent="Status"]
-margin_right = 128.0
-margin_bottom = 320.0
+margin_left = -20.0
+margin_right = 160.0
+margin_bottom = 450.0
 __meta__ = {
 "_edit_group_": true
 }
@@ -34,12 +37,14 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="Status/StatusContainer"]
 margin_left = 25.0
 margin_top = 25.0
-margin_right = 103.0
-margin_bottom = 295.0
+margin_right = 155.0
+margin_bottom = 425.0
+alignment = 1
 
 [node name="NextPiece" type="Label" parent="Status/StatusContainer/VBoxContainer"]
-margin_right = 78.0
-margin_bottom = 51.0
+margin_top = 65.0
+margin_right = 130.0
+margin_bottom = 116.0
 custom_fonts/font = SubResource( 1 )
 text = "Next 
 Piece"
@@ -47,9 +52,9 @@ align = 1
 valign = 1
 
 [node name="Label2" type="Label" parent="Status/StatusContainer/VBoxContainer"]
-margin_top = 55.0
-margin_right = 78.0
-margin_bottom = 187.0
+margin_top = 120.0
+margin_right = 130.0
+margin_bottom = 252.0
 text = "
 
 
@@ -59,9 +64,9 @@ align = 1
 valign = 1
 
 [node name="LavaCount" type="Label" parent="Status/StatusContainer/VBoxContainer"]
-margin_top = 191.0
-margin_right = 78.0
-margin_bottom = 242.0
+margin_top = 256.0
+margin_right = 130.0
+margin_bottom = 307.0
 custom_fonts/font = SubResource( 2 )
 text = "Lava
 "
@@ -69,9 +74,9 @@ align = 1
 valign = 1
 
 [node name="LavaCountNumber" type="Label" parent="Status/StatusContainer/VBoxContainer"]
-margin_top = 246.0
-margin_right = 78.0
-margin_bottom = 270.0
+margin_top = 311.0
+margin_right = 130.0
+margin_bottom = 335.0
 text = "10"
 align = 1
 valign = 1

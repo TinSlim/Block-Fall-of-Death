@@ -13,21 +13,22 @@ size = 24
 font_data = ExtResource( 2 )
 
 [node name="ScoreBoard" type="Node2D"]
+z_index = 1
 script = ExtResource( 3 )
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 68, 149 )
-scale = Vector2( 0.136, 0.236653 )
+position = Vector2( 70, 225 )
 texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 140, 450 )
 
 [node name="ScoreNode" type="Node2D" parent="."]
 z_index = 1
 
 [node name="Scores" type="MarginContainer" parent="ScoreNode"]
-margin_left = -21.0
-margin_top = 14.0
-margin_right = 159.0
-margin_bottom = 280.0
+margin_left = -20.0
+margin_right = 160.0
+margin_bottom = 450.0
 __meta__ = {
 "_edit_group_": true
 }
@@ -36,13 +37,13 @@ __meta__ = {
 margin_left = 25.0
 margin_top = 25.0
 margin_right = 155.0
-margin_bottom = 241.0
+margin_bottom = 425.0
 alignment = 1
 
 [node name="Highscore" type="Label" parent="ScoreNode/Scores/VBoxContainer"]
-margin_top = 13.0
+margin_top = 105.0
 margin_right = 130.0
-margin_bottom = 64.0
+margin_bottom = 156.0
 custom_fonts/font = SubResource( 1 )
 text = "Highscore
 "
@@ -50,17 +51,17 @@ align = 1
 valign = 1
 
 [node name="HighscoreNumber" type="Label" parent="ScoreNode/Scores/VBoxContainer"]
-margin_top = 68.0
+margin_top = 160.0
 margin_right = 130.0
-margin_bottom = 92.0
+margin_bottom = 184.0
 text = "10"
 align = 1
 valign = 1
 
 [node name="Score" type="Label" parent="ScoreNode/Scores/VBoxContainer"]
-margin_top = 96.0
+margin_top = 188.0
 margin_right = 130.0
-margin_bottom = 174.0
+margin_bottom = 266.0
 custom_fonts/font = SubResource( 2 )
 text = "
 Score
@@ -70,9 +71,9 @@ valign = 1
 autowrap = true
 
 [node name="ScoreNumber" type="Label" parent="ScoreNode/Scores/VBoxContainer"]
-margin_top = 178.0
+margin_top = 270.0
 margin_right = 130.0
-margin_bottom = 202.0
+margin_bottom = 294.0
 text = "10"
 align = 1
 valign = 1
