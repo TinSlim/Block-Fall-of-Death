@@ -127,9 +127,9 @@ text = "BlockFall of Death"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Menu/VBoxContainer"]
-margin_top = 100.0
+margin_top = 75.0
 margin_right = 760.0
-margin_bottom = 270.0
+margin_bottom = 245.0
 __meta__ = {
 "_edit_group_": true
 }
@@ -163,6 +163,6 @@ position = Vector2( 542, 347 )
 scale = Vector2( 3, 3 )
 z_index = 1
 frames = SubResource( 14 )
-frame = 1
+frame = 8
 speed_scale = 4.0
 playing = true
