@@ -2,11 +2,11 @@
 
 [ext_resource path="res://Resources/theme.tres" type="Theme" id=1]
 [ext_resource path="res://fonts/Tetris.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://scripts/main_menu.gd" type="Script" id=3]
-[ext_resource path="res://sprites/Run (34x44).png" type="Texture" id=4]
+[ext_resource path="res://scripts/ui/main_menu.gd" type="Script" id=3]
+[ext_resource path="res://sprites/character/Run (34x44).png" type="Texture" id=4]
 [ext_resource path="res://scenes/pieces/smashboy.tscn" type="PackedScene" id=5]
-[ext_resource path="res://sprites/night sky.png" type="Texture" id=6]
-[ext_resource path="res://sprites/highway.png" type="Texture" id=7]
+[ext_resource path="res://sprites/background/night sky.png" type="Texture" id=6]
+[ext_resource path="res://sprites/background/highway.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 70

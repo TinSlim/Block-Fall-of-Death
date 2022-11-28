@@ -12,47 +12,59 @@ _global_script_classes=[ {
 "base": "Piece",
 "class": "BlueRicky",
 "language": "GDScript",
-"path": "res://scripts/blue_ricky.gd"
+"path": "res://scripts/pieces/blue_ricky.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Bunny",
+"language": "GDScript",
+"path": "res://scripts/bunny.gd"
 }, {
 "base": "Piece",
 "class": "ClevelandZ",
 "language": "GDScript",
-"path": "res://scripts/cleveland_z.gd"
+"path": "res://scripts/pieces/cleveland_z.gd"
 }, {
 "base": "Piece",
 "class": "Hero",
 "language": "GDScript",
-"path": "res://scripts/hero.gd"
+"path": "res://scripts/pieces/hero.gd"
+}, {
+"base": "Area2D",
+"class": "JumpPU",
+"language": "GDScript",
+"path": "res://scripts/PowerUpJump.gd"
 }, {
 "base": "Piece",
 "class": "OrangeRicky",
 "language": "GDScript",
-"path": "res://scripts/orange_ricky.gd"
+"path": "res://scripts/pieces/orange_ricky.gd"
 }, {
 "base": "Node2D",
 "class": "Piece",
 "language": "GDScript",
-"path": "res://scripts/piece.gd"
+"path": "res://scripts/pieces/piece.gd"
 }, {
 "base": "Piece",
 "class": "RhodeIslandZ",
 "language": "GDScript",
-"path": "res://scripts/rhode_island_z.gd"
+"path": "res://scripts/pieces/rhode_island_z.gd"
 }, {
 "base": "Piece",
 "class": "Smashboy",
 "language": "GDScript",
-"path": "res://scripts/smashboy.gd"
+"path": "res://scripts/pieces/smashboy.gd"
 }, {
 "base": "Piece",
 "class": "Teewee",
 "language": "GDScript",
-"path": "res://scripts/teewee.gd"
+"path": "res://scripts/pieces/teewee.gd"
 } ]
 _global_script_class_icons={
 "BlueRicky": "",
+"Bunny": "",
 "ClevelandZ": "",
 "Hero": "",
+"JumpPU": "",
 "OrangeRicky": "",
 "Piece": "",
 "RhodeIslandZ": "",
@@ -111,12 +123,12 @@ texture={
 
 [input]
 
-move_claw_left={
+move_piece_left={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":65,"unicode":0,"echo":false,"script":null)
  ]
 }
-move_claw_right={
+move_piece_right={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":68,"unicode":0,"echo":false,"script":null)
  ]
@@ -151,12 +163,12 @@ rotate={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":82,"unicode":0,"echo":false,"script":null)
  ]
 }
-move_claw_down={
+move_piece_down={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":83,"unicode":0,"echo":false,"script":null)
  ]
 }
-move_claw_up={
+move_piece_up={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":87,"unicode":0,"echo":false,"script":null)
  ]

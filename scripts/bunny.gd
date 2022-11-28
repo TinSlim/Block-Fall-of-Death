@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+class_name Bunny
+
 var velocity = Vector2()
 
 var ACCELERATION = 1000
@@ -28,7 +30,6 @@ func _physics_process(delta):
 	
 	var move_input = Input.get_axis("move_player_left", "move_player_right")
 	
-	# velocity.x = lerp(move_input * SPEED, velocity.x, 0.9)
 	velocity.x = move_toward(velocity.x, move_input * SPEED, ACCELERATION * delta)
 	velocity.y += GRAVITY
 	

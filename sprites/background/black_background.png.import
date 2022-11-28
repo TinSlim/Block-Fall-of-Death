@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/night sky.png-7359871a5fc2f027f9f3c69308e4cfd8.stex"
+path="res://.import/black_background.png-1654d21c4104f0be58d728aea7f55be5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sound/night sky.png"
-dest_files=[ "res://.import/night sky.png-7359871a5fc2f027f9f3c69308e4cfd8.stex" ]
+source_file="res://sprites/background/black_background.png"
+dest_files=[ "res://.import/black_background.png-1654d21c4104f0be58d728aea7f55be5.stex" ]
 
 [params]
 

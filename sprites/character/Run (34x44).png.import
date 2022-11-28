@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/highway.png-82e7406c1d02bf54f1f48458671a2657.stex"
+path="res://.import/Run (34x44).png-55cbe1039d389e3998aff4d9b893d86a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/highway.png"
-dest_files=[ "res://.import/highway.png-82e7406c1d02bf54f1f48458671a2657.stex" ]
+source_file="res://sprites/character/Run (34x44).png"
+dest_files=[ "res://.import/Run (34x44).png-55cbe1039d389e3998aff4d9b893d86a.stex" ]
 
 [params]
 

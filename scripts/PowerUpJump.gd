@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name JumpPU
+
 func _physics_process(delta):
 	position.y = position.y  + 1
 	

@@ -3,11 +3,10 @@ extends Node2D
 # Constants
 var BLOCK_SIZE = PiecesArray.BLOCK_SIZE
 var playing = false
-var actual_object = null
+var actual_piece = null
 var movement_counter = 0
 var movement_dif = 30
-var init_pos = Vector2(140 + 4 + 8*BLOCK_SIZE - (BLOCK_SIZE/2), 2 + (BLOCK_SIZE/2))
-
+var init_piece_pos = Vector2(140 + 4 + 8*BLOCK_SIZE - (BLOCK_SIZE/2), 2 + (BLOCK_SIZE/2))
 var BloqueEstatico = preload("res://scenes/figuraStatic.tscn")
 
 # Bunny
@@ -84,50 +83,48 @@ func _physics_process(delta):
 	if playing and (movement_counter%movement_dif == 0):
 		
 		# si tiene bloque abajo, se queda ahí
-		if (actual_object.over_object()):
+		if (actual_piece.over_object()):
 			playing = false	
-			for cube in actual_object.CUBES:
+			for cube in actual_piece.CUBES:
 				var new_object = BloqueEstatico.instance()
-				new_object.change_color(actual_object.COLOR)
+				new_object.change_color(actual_piece.COLOR)
 				$StaticCubes.add_child(new_object)
 				new_object.position = cube.global_position
-			actual_object.queue_free()
+			actual_piece.queue_free()
 		
 		else:	
-			actual_object.reset_colission()
-			actual_object.position.y += BLOCK_SIZE
-			if actual_object.check_lava():
-				actual_object.queue_free()
+			actual_piece.reset_colission()
+			actual_piece.position.y += BLOCK_SIZE
+			if actual_piece.check_lava():
+				actual_piece.queue_free()
 				playing = false
 			
 
 	
 	# Si no juega crea un bloque
 	if !playing:
-		actual_object = PiecesArray.get_piece().instance()
+		actual_piece = PiecesArray.get_piece().instance()
 		PiecesArray.update_index()
 		status_board.update_piece()
 			
-		$StaticCubes.add_child(actual_object)
-		actual_object.position = Vector2(init_pos.x, init_pos.y - (going_down * BLOCK_SIZE))
+		$StaticCubes.add_child(actual_piece)
+		actual_piece.position = Vector2(init_piece_pos.x, init_piece_pos.y - (going_down * BLOCK_SIZE))
 		playing = true
 	
 	#######
 	## Movimiento de bloques/garra
 	#######
 	# Movimiento bloque hacia los lados con Input
-	if Input.is_action_just_pressed("move_claw_left") and not Input.is_action_pressed("move_claw_right") and not actual_object.left_object():
-		actual_object.reset_colission()
-		actual_object.position.x -= BLOCK_SIZE
+	if Input.is_action_just_pressed("move_piece_left") and not Input.is_action_pressed("move_piece_right") and not actual_piece.left_object():
+		actual_piece.reset_colission()
+		actual_piece.position.x -= BLOCK_SIZE
 	
-	if Input.is_action_just_pressed("move_claw_right") and not Input.is_action_pressed("move_claw_left") and not actual_object.right_object():
-		actual_object.reset_colission()
-		actual_object.position.x += BLOCK_SIZE
+	if Input.is_action_just_pressed("move_piece_right") and not Input.is_action_pressed("move_piece_left") and not actual_piece.right_object():
+		actual_piece.reset_colission()
+		actual_piece.position.x += BLOCK_SIZE
 	
-	if Input.is_action_pressed("move_claw_down"):
-		movement_dif = 15
-	elif Input.is_action_pressed("move_claw_up"):
-		movement_dif = 1
+	if Input.is_action_pressed("move_piece_down"):
+		movement_dif = 7
 	else:
 		movement_dif = 30
 
@@ -138,7 +135,7 @@ func _physics_process(delta):
 	if (actual_item == null or !is_instance_valid(actual_item)):
 		if (item_counter % object_dif == 0):
 			actual_item = POWER_UPS[0].instance()
-			actual_item.position = Vector2(init_pos.x + rng.randi_range(-7,8) * BLOCK_SIZE, init_pos.y - (going_down * BLOCK_SIZE))
+			actual_item.position = Vector2(init_piece_pos.x + rng.randi_range(-7,8) * BLOCK_SIZE, init_piece_pos.y - (going_down * BLOCK_SIZE))
 			$Powers.add_child(actual_item)
 		item_counter += 1
 

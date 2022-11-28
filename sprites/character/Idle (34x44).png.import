@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/blockWhite.jpeg-bc4d754aac309733d4ac8f1dc6b72f9d.stex"
+path="res://.import/Idle (34x44).png-120c5647044e132d5000c92be96bfc94.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/blockWhite.jpeg"
-dest_files=[ "res://.import/blockWhite.jpeg-bc4d754aac309733d4ac8f1dc6b72f9d.stex" ]
+source_file="res://sprites/character/Idle (34x44).png"
+dest_files=[ "res://.import/Idle (34x44).png-120c5647044e132d5000c92be96bfc94.stex" ]
 
 [params]
 

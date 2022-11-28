@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Run (34x44).png-9c4e9dee321394b4b1c4e4e5e3e2da7c.stex"
+path="res://.import/night sky - copia.png-b0f150a5f50a82e00dfe4b3cdf2efa6c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Run (34x44).png"
-dest_files=[ "res://.import/Run (34x44).png-9c4e9dee321394b4b1c4e4e5e3e2da7c.stex" ]
+source_file="res://sprites/background/night sky - copia.png"
+dest_files=[ "res://.import/night sky - copia.png-b0f150a5f50a82e00dfe4b3cdf2efa6c.stex" ]
 
 [params]
 

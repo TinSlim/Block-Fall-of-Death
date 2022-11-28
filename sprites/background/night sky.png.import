@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Fall.png-4085250738971f1d772debe91d2be11a.stex"
+path="res://.import/night sky.png-ed173e007a465298dad14bd65c2c129c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Fall.png"
-dest_files=[ "res://.import/Fall.png-4085250738971f1d772debe91d2be11a.stex" ]
+source_file="res://sprites/background/night sky.png"
+dest_files=[ "res://.import/night sky.png-ed173e007a465298dad14bd65c2c129c.stex" ]
 
 [params]
 

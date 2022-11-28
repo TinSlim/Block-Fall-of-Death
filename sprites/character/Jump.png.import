@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/night sky - copia.png-51daab523c26f4ba0ca65cc30fe0d2d0.stex"
+path="res://.import/Jump.png-534f879e1b39b72c7a607ed6166fe71c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/night sky - copia.png"
-dest_files=[ "res://.import/night sky - copia.png-51daab523c26f4ba0ca65cc30fe0d2d0.stex" ]
+source_file="res://sprites/character/Jump.png"
+dest_files=[ "res://.import/Jump.png-534f879e1b39b72c7a607ed6166fe71c.stex" ]
 
 [params]
 
