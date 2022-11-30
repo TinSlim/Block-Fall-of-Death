@@ -84,6 +84,9 @@ func _physics_process(delta):
 		
 		# si tiene bloque abajo, se queda ahí
 		if (actual_piece.over_object()):
+			if actual_piece.position == Vector2(init_piece_pos.x, init_piece_pos.y - (going_down * BLOCK_SIZE)):
+				game_over()
+			
 			playing = false	
 			for cube in actual_piece.CUBES:
 				var new_object = BloqueEstatico.instance()
@@ -117,10 +120,12 @@ func _physics_process(delta):
 	# Movimiento bloque hacia los lados con Input
 	if Input.is_action_just_pressed("move_piece_left") and not Input.is_action_pressed("move_piece_right") and not actual_piece.left_object():
 		actual_piece.reset_colission()
+		actual_piece.clear_right_wall()
 		actual_piece.position.x -= BLOCK_SIZE
 	
 	if Input.is_action_just_pressed("move_piece_right") and not Input.is_action_pressed("move_piece_left") and not actual_piece.right_object():
 		actual_piece.reset_colission()
+		actual_piece.clear_left_wall()
 		actual_piece.position.x += BLOCK_SIZE
 	
 	if Input.is_action_pressed("move_piece_down"):
@@ -143,5 +148,4 @@ func _physics_process(delta):
 # It updates the highscore and show the game over animation
 func game_over():
 	score_board.update_db()
-	# TODO Gamer Over Animation
-	get_tree().change_scene("res://scenes/ui/main_menu.tscn")
+	get_tree().change_scene("res://scenes/endgame.tscn")

@@ -1,0 +1,101 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/ui/endgame.gd" type="Script" id=1]
+[ext_resource path="res://sprites/lava.png" type="Texture" id=2]
+[ext_resource path="res://sprites/background/endgame2.png" type="Texture" id=3]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 400, 225 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 100.0
+margin_top = 50.0
+margin_right = 249.0
+margin_bottom = 74.0
+rect_scale = Vector2( 4, 4 )
+text = "GAME OVER"
+align = 1
+
+[node name="Restart" type="Button" parent="."]
+margin_left = 300.0
+margin_top = 338.0
+margin_right = 500.0
+margin_bottom = 368.0
+text = "Restart"
+
+[node name="Menu" type="Button" parent="."]
+margin_left = 360.0
+margin_top = 370.0
+margin_right = 440.0
+margin_bottom = 400.0
+text = "Menu"
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 100, 50 )
+scale = Vector2( 4, 4 )
+
+[node name="Sprite2" type="Sprite" parent="Node2D"]
+position = Vector2( 0.5, 12.5 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="Sprite4" type="Sprite" parent="Node2D"]
+position = Vector2( 100, 12.5 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="Sprite5" type="Sprite" parent="Node2D"]
+position = Vector2( 150, 12.5 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="Node2D"]
+position = Vector2( 50, 12.5 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="Sprite6" type="Sprite" parent="Node2D"]
+position = Vector2( 0.5, 60 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="Sprite7" type="Sprite" parent="Node2D"]
+position = Vector2( 100, 60 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="Sprite8" type="Sprite" parent="Node2D"]
+position = Vector2( 150, 60 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="Sprite9" type="Sprite" parent="Node2D"]
+position = Vector2( 50, 60 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="Sprite10" type="Sprite" parent="Node2D"]
+position = Vector2( 0.5, 110 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="Sprite11" type="Sprite" parent="Node2D"]
+position = Vector2( 100, 110 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="Sprite12" type="Sprite" parent="Node2D"]
+position = Vector2( 150, 110 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="Sprite13" type="Sprite" parent="Node2D"]
+position = Vector2( 50, 110 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )

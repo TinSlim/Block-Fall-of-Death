@@ -11,6 +11,9 @@ export var colission = false
 export var COLOR = Color(0, 0, 0)
 var rotate = true
 
+var on_right_wall = false
+var on_left_wall = false
+
 var Bloque = preload("res://scenes/figura.tscn")
 
 func rotate_piece():
@@ -21,6 +24,14 @@ func rotate_piece():
 		cube.rotation_degrees = cube.rotation_degrees - 90
 	reset_colission()
 
+func clear_right_wall ():
+	for cube in CUBES:
+		cube.on_right_wall = false
+		
+func clear_left_wall ():
+	for cube in CUBES:
+		cube.on_left_wall = false
+		
 func over_object():
 	for cube in CUBES:
 		if cube.colission:
@@ -29,13 +40,13 @@ func over_object():
 
 func right_object():
 	for cube in CUBES:
-		if cube.colission_drcha:
+		if cube.colission_drcha or cube.on_right_wall:
 			return true
 	return false
 	
 func left_object():
 	for cube in CUBES:
-		if cube.colission_izqu:
+		if cube.colission_izqu  or cube.on_left_wall:
 			return true
 	return false
 
@@ -48,7 +59,8 @@ func rotation_not_posible ():
 func reset_colission():
 	reset_sombra()
 	for cube in CUBES:
-		cube.colission = false
+		if not cube.in_suelo:
+			cube.colission = false
 		cube.colission_drcha = false
 		cube.colission_izqu = false
 	
