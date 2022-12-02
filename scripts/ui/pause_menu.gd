@@ -16,6 +16,8 @@ func _ready():
 	
 func _input(event):
 	if event.is_action_pressed("pause"):
+		if get_node("../Settings").visible:
+			return
 		visible = not visible
 		get_tree().paused = visible
 	
