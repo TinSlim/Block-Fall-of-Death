@@ -86,7 +86,6 @@ align = 1
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2( 100, 50 )
 scale = Vector2( 4, 4 )
-z_index = -1
 
 [node name="Sprite2" type="Sprite" parent="Node2D"]
 position = Vector2( 0.5, 12.5 )
