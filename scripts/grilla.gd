@@ -13,9 +13,9 @@ var BloqueEstatico = preload("res://scenes/figuraStatic.tscn")
 onready var bunny = $Bunny
 
 # Lava rising variables
-var initial_lava_countdown = 15
-var rising_number = 1
-var lava_countdown = initial_lava_countdown / rising_number
+var lava_up = false
+var total_lava_countdown = 15
+var lava_countdown = total_lava_countdown
 var min_lava_countdown = 1.5
 
 # Lava Floor variables
@@ -69,15 +69,17 @@ func _physics_process(delta):
 	if lava_countdown <= 0:
 		# Move lava up
 		lava_floor.move_up()
-		if rising_number > 1:
+		if lava_up:
 			$Camera2D.position.y -= BLOCK_SIZE
 			going_down += 1
 		# Update countdown
-		rising_number += 1
-		lava_countdown = initial_lava_countdown / rising_number
+		lava_up = true
+		total_lava_countdown -= 2
 		# Force minimum lava countdown
-		if lava_countdown < min_lava_countdown:
+		if total_lava_countdown < min_lava_countdown:
 			lava_countdown = min_lava_countdown
+		else:
+			lava_countdown = total_lava_countdown
 	status_board.update_lava_count(stepify(lava_countdown,0.1))
 
 	if playing and (movement_counter%movement_dif == 0):

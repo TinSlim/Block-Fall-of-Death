@@ -64,15 +64,15 @@ margin_bottom = 234.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[rainbow freq=0.2 sat=10 val=20]New Highscore[/rainbow]"
-text = "New Highscore"
 
 [node name="ActScoreNum" type="Label" parent="Score"]
-margin_left = 136.0
+margin_left = 90.0
 margin_top = 250.0
-margin_right = 184.0
+margin_right = 230.0
 margin_bottom = 298.0
 custom_fonts/font = SubResource( 3 )
-text = "10"
+text = "00000"
+align = 1
 
 [node name="ActScore" type="Label" parent="Score"]
 margin_left = 110.0
@@ -81,6 +81,7 @@ margin_right = 210.0
 margin_bottom = 348.0
 custom_fonts/font = SubResource( 2 )
 text = "Score"
+align = 1
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2( 100, 50 )
