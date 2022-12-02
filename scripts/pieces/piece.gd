@@ -10,18 +10,24 @@ onready var SOMBRAS = []
 export var colission = false
 export var COLOR = Color(0, 0, 0)
 var rotate = true
+var rotation_delta = 0.3
 
 var on_right_wall = false
 var on_left_wall = false
 
 var Bloque = preload("res://scenes/figura.tscn")
 
-func rotate_piece():
+func rotate_piece(to_right):
 	if (rotation_not_posible()):
 		return
-	PIVOT.rotation_degrees = PIVOT.rotation_degrees + 90
+	var rot_angle = 90
+	###
+	if not to_right:
+		rot_angle = -90
+	###
+	PIVOT.rotation_degrees = PIVOT.rotation_degrees + rot_angle
 	for cube in CUBES:
-		cube.rotation_degrees = cube.rotation_degrees - 90
+		cube.rotation_degrees = cube.rotation_degrees - rot_angle
 	reset_colission()
 
 func clear_right_wall ():
@@ -89,8 +95,12 @@ func disable_rotation():
 # Called when the node enters the scene tree for the first time.
 func _physics_process(delta):
 	delta_acc = delta_acc + delta
-	if self.rotate and delta_acc > 0.5 and Input.is_action_pressed("rotate"):
-		self.rotate_piece()
+	if self.rotate and delta_acc > rotation_delta and Input.is_action_pressed("rotate"):
+		self.rotate_piece(true)
+		delta_acc = 0
+	var rotate_input = Vector2(Input.is_action_pressed("rotate_l"), Input.is_action_pressed("rotate_r"))
+	if self.rotate and delta_acc > rotation_delta and (rotate_input.x or rotate_input.y):
+		self.rotate_piece(rotate_input.y)
 		delta_acc = 0
 	
 
