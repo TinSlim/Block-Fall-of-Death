@@ -1,8 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/ui/endgame.gd" type="Script" id=1]
 [ext_resource path="res://sprites/lava.png" type="Texture" id=2]
 [ext_resource path="res://sprites/background/endgame2.png" type="Texture" id=3]
+[ext_resource path="res://fonts/Tetris.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -35,6 +52,35 @@ margin_top = 370.0
 margin_right = 440.0
 margin_bottom = 400.0
 text = "Menu"
+
+[node name="Score" type="Node2D" parent="."]
+
+[node name="NewHighscore" type="RichTextLabel" parent="Score"]
+visible = false
+margin_left = 20.0
+margin_top = 200.0
+margin_right = 300.0
+margin_bottom = 234.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[rainbow freq=0.2 sat=10 val=20]New Highscore[/rainbow]"
+text = "New Highscore"
+
+[node name="ActScoreNum" type="Label" parent="Score"]
+margin_left = 136.0
+margin_top = 250.0
+margin_right = 184.0
+margin_bottom = 298.0
+custom_fonts/font = SubResource( 3 )
+text = "10"
+
+[node name="ActScore" type="Label" parent="Score"]
+margin_left = 110.0
+margin_top = 316.0
+margin_right = 210.0
+margin_bottom = 348.0
+custom_fonts/font = SubResource( 2 )
+text = "Score"
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2( 100, 50 )

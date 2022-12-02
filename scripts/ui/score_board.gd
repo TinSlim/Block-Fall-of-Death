@@ -25,6 +25,8 @@ func _score_number_set(value):
 # Updates the highscore in the DB only if the actual score 
 # is greater than the actual highscore
 func update_db():
+	DB.actual_score = score_number
 	if score_number > highscore_number:
+		DB.is_new_highscore = true
 		DB.data["highscore"] = score_number
 		DB.save_db()

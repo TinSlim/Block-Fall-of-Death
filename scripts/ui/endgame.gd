@@ -4,6 +4,9 @@ var act = 0
 var vel = 0
 onready var lava = $Node2D
 
+onready var new_highscore = $Score/NewHighscore
+onready var act_score_num = $Score/ActScoreNum
+
 onready var restart = $Restart
 onready var menu = $Menu
 
@@ -11,7 +14,9 @@ onready var menu = $Menu
 func _ready():
 	restart.connect("pressed",self,"_on_restart_pressed")
 	menu.connect("pressed",self,"_on_menu_pressed")
-	pass # Replace with function body.
+	new_highscore.visible = DB.is_new_highscore
+	act_score_num.text = str(DB.actual_score)
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,7 +34,5 @@ func _on_restart_pressed():
 func _on_menu_pressed():
 	get_tree().change_scene("res://scenes/ui/main_menu.tscn")
 	
-
-
 func _on_settings_pressed():
 	pass
