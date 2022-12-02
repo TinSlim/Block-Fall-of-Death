@@ -56,28 +56,28 @@ text = "Menu"
 [node name="Score" type="Node2D" parent="."]
 
 [node name="NewHighscore" type="RichTextLabel" parent="Score"]
-visible = false
 margin_left = 20.0
 margin_top = 200.0
-margin_right = 300.0
+margin_right = 280.0
 margin_bottom = 234.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[rainbow freq=0.2 sat=10 val=20]New Highscore[/rainbow]"
+text = "New Highscore"
 
 [node name="ActScoreNum" type="Label" parent="Score"]
-margin_left = 90.0
+margin_left = 80.0
 margin_top = 250.0
-margin_right = 230.0
+margin_right = 220.0
 margin_bottom = 298.0
 custom_fonts/font = SubResource( 3 )
 text = "00000"
 align = 1
 
 [node name="ActScore" type="Label" parent="Score"]
-margin_left = 110.0
+margin_left = 100.0
 margin_top = 316.0
-margin_right = 210.0
+margin_right = 200.0
 margin_bottom = 348.0
 custom_fonts/font = SubResource( 2 )
 text = "Score"
@@ -86,6 +86,7 @@ align = 1
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2( 100, 50 )
 scale = Vector2( 4, 4 )
+z_index = -1
 
 [node name="Sprite2" type="Sprite" parent="Node2D"]
 position = Vector2( 0.5, 12.5 )
