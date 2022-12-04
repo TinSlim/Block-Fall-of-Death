@@ -21,4 +21,6 @@ func move_up():
 func game_over():
 	if not MAIN_SCENE:
 		print("Not MAIN_SCENE at lava_floor.gd")
-	MAIN_SCENE.game_over()
+	if not MAIN_SCENE.loosing:
+		MAIN_SCENE.loosing = true
+		MAIN_SCENE.game_over()
