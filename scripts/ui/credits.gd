@@ -3,16 +3,16 @@ extends MarginContainer
 
 var team_credits = [
 	{
-		"name": "Juan Escarez",
+		"name": "Juan Escares",
 		"link": "https://itch.io/profile/theaxz"
 	},
 	{
-		"name": "Cristobal Torres",
-		"link": "https://tinslim.itch.io/"
+		"name": "Cristóbal Torres",
+		"link": "https://tinslim.itch.io"
 	},
 	{
 		"name": "Rodrigo Urrea",
-		"link": "https://riul1999.itch.io/"
+		"link": "https://riul1999.itch.io"
 	}
 ]
 
@@ -32,7 +32,7 @@ var assets_credits = [
 	# Street Background
 	{
 		"name": "Warped Miami Synth",
-		"author": "https://ansimuz.itch.io/"
+		"author": "https://ansimuz.itch.io"
 	},
 
 	# Bunny
@@ -43,14 +43,14 @@ var assets_credits = [
 	
 	# Background Sound
 	{
-		"name": "",
-		"author": ""
+		"name": "50+ Music Loops",
+		"author": "https://fardifferent.itch.io"
 	},
 	
 	# Jump Sound Effect
 	{
 		"name":"8-bit / 16-bit Sound Effects (x25) Pack",
-		"author": "https://jdwasabi.itch.io/"
+		"author": "https://jdwasabi.itch.io"
 	}
 ]
 
