@@ -1,23 +1,56 @@
 
 extends MarginContainer
 
-var credits = [
-	# Frutas
+var team_credits = [
+	{
+		"name": "Juan Escarez",
+		"link": "https://itch.io/profile/theaxz"
+	},
+	{
+		"name": "Cristobal Torres",
+		"link": "https://tinslim.itch.io/"
+	},
+	{
+		"name": "Rodrigo Urrea",
+		"link": "https://riul1999.itch.io/"
+	}
+]
+
+var assets_credits = [
+	# Powerup Fruit
 	{
 		"name": "Admurin's Botany Items",
 		"author": "admurin.itch.io"
 	},
 
-	# Fondo
+	# Buildings Background
 	{
 		"name": "City Background Parallax",
 		"author": "mizuart.itch.io"
 	},
+	
+	# Street Background
+	{
+		"name": "Warped Miami Synth",
+		"author": "https://ansimuz.itch.io/"
+	},
 
-	# Conejo
+	# Bunny
 	{
 		"name": "Pixel Adventure 2",
 		"author": "pixelfrog-assets.itch.io"
+	},
+	
+	# Background Sound
+	{
+		"name": "",
+		"author": ""
+	},
+	
+	# Jump Sound Effect
+	{
+		"name":"8-bit / 16-bit Sound Effects (x25) Pack",
+		"author": "https://jdwasabi.itch.io/"
 	}
 ]
 
@@ -29,17 +62,33 @@ onready var scroll_container = $ScrollContainer
 
 
 func _ready():
-	var first = true
-	for credit in credits:
+	var creators_label = _create_label("CRA Games Team")
+	credits_container.add_child(creators_label)
+	
+	for author in team_credits:
 		var h_separator = HSeparator.new()
+		h_separator.theme_type_variation = "SmallHSeparator"
+		var name_label = _create_label(author.name)
+		var link_label = _create_label(author.link)
+		credits_container.add_child(h_separator)
+		credits_container.add_child(name_label)
+		credits_container.add_child(link_label)
+	
+	var h_separator = HSeparator.new()
+	credits_container.add_child(h_separator)
+	
+	var assets_label = _create_label("Assets")
+	credits_container.add_child(assets_label)
+	
+	for credit in assets_credits:
+		h_separator = HSeparator.new()
 		h_separator.theme_type_variation = "SmallHSeparator"
 		var name_label = _create_label(credit.name)
 		var author_label = _create_label(credit.author)
-		if not first:
-			credits_container.add_child(h_separator)
+		credits_container.add_child(h_separator)
 		credits_container.add_child(name_label)
 		credits_container.add_child(author_label)
-		first = false
+	
 	scroll_container.scroll_vertical = 0
 	set_physics_process(false)
 	yield(get_tree().create_timer(2), "timeout")
