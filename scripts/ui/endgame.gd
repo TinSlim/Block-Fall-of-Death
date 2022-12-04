@@ -16,6 +16,8 @@ func _ready():
 	menu.connect("pressed",self,"_on_menu_pressed")
 	new_highscore.visible = DB.is_new_highscore
 	act_score_num.text = str(DB.actual_score)
+	
+	restart.grab_focus()
 
 
 

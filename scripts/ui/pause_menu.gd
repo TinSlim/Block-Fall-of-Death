@@ -20,6 +20,9 @@ func _input(event):
 			return
 		visible = not visible
 		get_tree().paused = visible
+		
+		if visible:
+			resume.grab_focus()
 	
 func _on_resume_pressed():
 	get_tree().paused = false
