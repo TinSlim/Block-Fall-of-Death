@@ -8,7 +8,7 @@ var movement_counter = 0
 var movement_dif = 30
 var init_piece_pos = Vector2(140 + 4 + 8*BLOCK_SIZE - (BLOCK_SIZE/2), 2 + (BLOCK_SIZE/2))
 var BloqueEstatico = preload("res://scenes/figuraStatic.tscn")
-
+var game_over_s = false
 # Bunny
 onready var bunny = $Bunny
 
@@ -86,7 +86,7 @@ func _physics_process(delta):
 		
 		# si tiene bloque abajo, se queda ahí
 		if (actual_piece.over_object()):
-			if actual_piece.position == Vector2(init_piece_pos.x, init_piece_pos.y - (going_down * BLOCK_SIZE)):
+			if actual_piece.position == Vector2(init_piece_pos.x, init_piece_pos.y - (going_down * BLOCK_SIZE)) and !game_over_s:
 				game_over()
 			
 			playing = false	
@@ -122,20 +122,16 @@ func _physics_process(delta):
 	# Movimiento bloque hacia los lados con Input
 	if Input.is_action_just_pressed("move_piece_left") and not Input.is_action_pressed("move_piece_right") and not actual_piece.left_object():
 		actual_piece.reset_colission()
-		actual_piece.clear_right_wall()
 		actual_piece.position.x -= BLOCK_SIZE
 	
 	if Input.is_action_just_pressed("move_piece_right") and not Input.is_action_pressed("move_piece_left") and not actual_piece.right_object():
 		actual_piece.reset_colission()
-		actual_piece.clear_left_wall()
 		actual_piece.position.x += BLOCK_SIZE
 	
 	if Input.is_action_pressed("move_piece_down"):
 		movement_dif = 7
 	else:
 		movement_dif = 30
-
-		
 	
 	# Caída bloque
 	movement_counter += 1
@@ -149,5 +145,6 @@ func _physics_process(delta):
 # Function triggered if Bunny touch the lava
 # It updates the highscore and show the game over animation
 func game_over():
+	game_over_s = true
 	score_board.update_db()
 	get_tree().change_scene("res://scenes/endgame.tscn")

@@ -41,7 +41,13 @@ func _on_Derecha_body_entered(body):
 		on_right_wall = true
 	pass # Replace with function body.
 
-
+func _on_Derecha_body_exited(body):
+	if (body.name == "Right_Wall"):
+		on_right_wall = false
+	if (body.name != "BloqueEstatico"):
+		colission_drcha = false
+	pass # Replace with function body.
+	
 func _on_Suelo_body_entered(body):
 	if (body.name != "BloqueEstatico"):
 		colission = true
@@ -49,12 +55,25 @@ func _on_Suelo_body_entered(body):
 		in_suelo = true
 	pass # Replace with function body.
 
-
+func _on_Suelo_body_exited(body):
+	if (body.name != "BloqueEstatico"):
+		colission = false
+	if (body.name == "Floor"):
+		in_suelo = false
+	pass # Replace with function body.
+	
 func _on_Izquierda_body_entered(body):
 	if (body.name != "BloqueEstatico"):
 		colission_izqu = true
 	if (body.name == "Left_Wall"):
 		on_left_wall = true
+	pass # Replace with function body.
+
+func _on_Izquierda_body_exited(body):
+	if (body.name == "Left_Wall"):
+		on_left_wall = false
+	if (body.name != "BloqueEstatico"):
+		colission_izqu = false
 	pass # Replace with function body.
 
 func _on_Techo_area_entered(area):
@@ -66,3 +85,12 @@ func _on_Suelo_area_entered(area):
 	if (area is LavaClass):
 		fire.burn()
 	pass # Replace with function body.
+
+
+
+
+
+
+
+
+

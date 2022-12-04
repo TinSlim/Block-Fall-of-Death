@@ -5,8 +5,11 @@ class_name Piece
 var delta_acc = 0
 onready var PIVOT = self.find_node("Pivot")
 onready var CUBES = self.find_node("Cubes").get_children()
+
 onready var SOMBRA = self.find_node("Sombra")
-onready var SOMBRAS = []
+onready var SOMBRAS_DER = []
+onready var SOMBRAS_IZQ = []
+
 export var colission = false
 export var COLOR = Color(0, 0, 0)
 var rotate = true
@@ -18,10 +21,11 @@ var on_left_wall = false
 var Bloque = preload("res://scenes/figura.tscn")
 
 func rotate_piece(to_right):
-	if (rotation_not_posible()):
+	if (rotation_not_posible_der() and to_right):
 		return
 	var rot_angle = 90
-	###
+	if (rotation_not_posible_izq() and not to_right):
+		return
 	if not to_right:
 		rot_angle = -90
 	###
@@ -30,14 +34,6 @@ func rotate_piece(to_right):
 		cube.rotation_degrees = cube.rotation_degrees - rot_angle
 	reset_colission()
 
-func clear_right_wall ():
-	for cube in CUBES:
-		cube.on_right_wall = false
-		
-func clear_left_wall ():
-	for cube in CUBES:
-		cube.on_left_wall = false
-		
 func over_object():
 	for cube in CUBES:
 		if cube.colission:
@@ -56,32 +52,39 @@ func left_object():
 			return true
 	return false
 
-func rotation_not_posible ():
-	for sombra in SOMBRAS:
-		if sombra.colission:
+func rotation_not_posible_der():
+	for sombra in SOMBRAS_DER:
+		if sombra.colission or sombra.colission_wall_der or sombra.colission_wall_izq:
 			return true
 	return false
 	
+func rotation_not_posible_izq():
+	for sombra in SOMBRAS_IZQ:
+		if sombra.colission or sombra.colission_wall_der or sombra.colission_wall_izq:
+			return true
+	return false
+
+	
 func reset_colission():
-	reset_sombra()
-	for cube in CUBES:
-		if not cube.in_suelo:
-			cube.colission = false
-		cube.colission_drcha = false
-		cube.colission_izqu = false
-	
-	
-func reset_sombra():
-	for sombra in SOMBRAS:
-		sombra.colission = false
+	#reset_sombra()
+	#for cube in CUBES:
+	#	if not cube.in_suelo:
+	#		cube.colission = false
+	#	cube.colission_drcha = false
+	#	cube.colission_izqu = false
+	pass
 		
 
 func set_sombra():
 	for cube in CUBES:
 		var new_sombra = Bloque.instance()
 		new_sombra.position = Vector2(-cube.position.y,cube.position.x)
+		var new_sombra_2 = Bloque.instance()
+		new_sombra_2.position = Vector2(cube.position.y,-cube.position.x)
 		SOMBRA.add_child(new_sombra)
-	SOMBRAS = SOMBRA.get_children()
+		SOMBRA.add_child(new_sombra_2)
+		SOMBRAS_DER.append(new_sombra)
+		SOMBRAS_IZQ.append(new_sombra_2)
 
 func check_lava():
 	for cube in CUBES:

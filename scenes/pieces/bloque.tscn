@@ -56,8 +56,11 @@ position = Vector2( 0, -60 )
 shape = SubResource( 6 )
 
 [connection signal="body_entered" from="Derecha" to="." method="_on_Derecha_body_entered"]
+[connection signal="body_exited" from="Derecha" to="." method="_on_Derecha_body_exited"]
 [connection signal="area_entered" from="Suelo" to="." method="_on_Suelo_area_entered"]
 [connection signal="area_shape_entered" from="Suelo" to="." method="_on_Suelo_area_shape_entered"]
 [connection signal="body_entered" from="Suelo" to="." method="_on_Suelo_body_entered"]
+[connection signal="body_exited" from="Suelo" to="." method="_on_Suelo_body_exited"]
 [connection signal="body_entered" from="Izquierda" to="." method="_on_Izquierda_body_entered"]
+[connection signal="body_exited" from="Izquierda" to="." method="_on_Izquierda_body_exited"]
 [connection signal="area_entered" from="Techo" to="." method="_on_Techo_area_entered"]
