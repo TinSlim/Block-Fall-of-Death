@@ -21,6 +21,7 @@ var min_lava_countdown = 1.5
 # Lava Floor variables
 onready var lava_floor = $LavaFloor
 var going_down = 0
+var loosing = false
 
 # Power up variables
 var DOBLE_JUMP = preload("res://scenes/PowerUpJump.tscn")
