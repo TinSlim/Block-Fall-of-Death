@@ -16,7 +16,7 @@ onready var bunny = $Bunny
 var lava_up = false
 var total_lava_countdown = 15
 var lava_countdown = total_lava_countdown
-var min_lava_countdown = 1.5
+var min_lava_countdown = 3
 
 # Lava Floor variables
 onready var lava_floor = $LavaFloor
