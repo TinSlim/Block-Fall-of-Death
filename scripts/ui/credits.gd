@@ -4,7 +4,7 @@ extends MarginContainer
 var team_credits = [
 	{
 		"name": "Juan Escares",
-		"link": "https://itch.io/profile/theaxz"
+		"link": "https://theaxz.itch.io"
 	},
 	{
 		"name": "Cristóbal Torres",
