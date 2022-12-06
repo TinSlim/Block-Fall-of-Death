@@ -6,4 +6,4 @@ Block Fall of Death es un juego multijugador de 2 jugadores, que mezcla las mec√
 
 ## Enlaces:
 
-[Link del Juego en Itch.io](https://pages.github.com](https://tinslim.itch.io/block-fall-of-death)
+[Link del Juego en Itch.io](https://tinslim.itch.io/block-fall-of-death)
